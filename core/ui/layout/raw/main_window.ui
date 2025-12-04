@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>main_window</class>
+ <widget class="QMainWindow" name="main_window">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>840</width>
+    <height>520</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="main_widget"/>
+  <widget class="QMenuBar" name="menu_bar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>840</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <widget class="QMenu" name="general_menu">
+    <property name="title">
+     <string>Главная</string>
+    </property>
+    <widget class="QMenu" name="master_password_menu">
+     <property name="title">
+      <string>Мастер пароль</string>
+     </property>
+     <addaction name="add_master_password_action"/>
+     <addaction name="edit_master_password_action"/>
+     <addaction name="remove_master_password_action"/>
+     <addaction name="separator"/>
+     <addaction name="master_password_status_action"/>
+    </widget>
+    <widget class="QMenu" name="service_menu">
+     <property name="title">
+      <string>Сервис</string>
+     </property>
+     <addaction name="restart_service_action"/>
+     <addaction name="separator"/>
+     <addaction name="action_service_status"/>
+    </widget>
+    <addaction name="general_action"/>
+    <addaction name="separator"/>
+    <addaction name="master_password_menu"/>
+    <addaction name="service_menu"/>
+    <addaction name="settings_action"/>
+    <addaction name="separator"/>
+    <addaction name="exit_action"/>
+   </widget>
+   <widget class="QMenu" name="passwords_menu">
+    <property name="title">
+     <string>Пароли</string>
+    </property>
+    <addaction name="passwords_action"/>
+    <addaction name="separator"/>
+    <addaction name="add_password_action"/>
+    <addaction name="clear_passwords_list"/>
+    <addaction name="separator"/>
+    <addaction name="import_csv_action"/>
+    <addaction name="export_csv_action"/>
+   </widget>
+   <widget class="QMenu" name="generator_menu">
+    <property name="title">
+     <string>Генератор</string>
+    </property>
+    <addaction name="create_password"/>
+    <addaction name="create_quick_password"/>
+   </widget>
+   <widget class="QMenu" name="help_menu">
+    <property name="title">
+     <string>Справка</string>
+    </property>
+    <addaction name="about_action"/>
+    <addaction name="separator"/>
+    <addaction name="action_version"/>
+   </widget>
+   <addaction name="general_menu"/>
+   <addaction name="passwords_menu"/>
+   <addaction name="generator_menu"/>
+   <addaction name="help_menu"/>
+  </widget>
+  <action name="general_action">
+   <property name="text">
+    <string>Главная</string>
+   </property>
+  </action>
+  <action name="exit_action">
+   <property name="text">
+    <string>Выход</string>
+   </property>
+  </action>
+  <action name="settings_action">
+   <property name="text">
+    <string>Настройки</string>
+   </property>
+  </action>
+  <action name="passwords_action">
+   <property name="text">
+    <string>Пароли</string>
+   </property>
+  </action>
+  <action name="add_password_action">
+   <property name="text">
+    <string>Добавить...</string>
+   </property>
+  </action>
+  <action name="import_csv_action">
+   <property name="text">
+    <string>Импорт из csv...</string>
+   </property>
+  </action>
+  <action name="export_csv_action">
+   <property name="text">
+    <string>Экспорт в csv...</string>
+   </property>
+  </action>
+  <action name="create_password">
+   <property name="text">
+    <string>Создать пароль...</string>
+   </property>
+  </action>
+  <action name="create_quick_password">
+   <property name="text">
+    <string>Создать быстрый пароль</string>
+   </property>
+  </action>
+  <action name="about_action">
+   <property name="text">
+    <string>О программе</string>
+   </property>
+  </action>
+  <action name="action_version">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&lt;version&gt;</string>
+   </property>
+  </action>
+  <action name="add_master_password_action">
+   <property name="text">
+    <string>Добавить...</string>
+   </property>
+  </action>
+  <action name="edit_master_password_action">
+   <property name="text">
+    <string>Изменить...</string>
+   </property>
+  </action>
+  <action name="remove_master_password_action">
+   <property name="text">
+    <string>Удалить</string>
+   </property>
+  </action>
+  <action name="master_password_status_action">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&lt;master_status&gt;</string>
+   </property>
+  </action>
+  <action name="restart_service_action">
+   <property name="text">
+    <string>Перезапустить</string>
+   </property>
+  </action>
+  <action name="action_service_status">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&lt;service_status&gt;</string>
+   </property>
+  </action>
+  <action name="clear_passwords_list">
+   <property name="text">
+    <string>Сброс паролей</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
