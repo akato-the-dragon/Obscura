@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>edit_master_popup_widget</class>
- <widget class="QWidget" name="edit_master_popup_widget">
+ <class>input_master_popup_widget</class>
+ <widget class="QWidget" name="input_master_popup_widget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,7 +10,7 @@
     <height>150</height>
    </rect>
   </property>
-  <layout class="QVBoxLayout" name="edit_master_popup_layout">
+  <layout class="QVBoxLayout" name="input_master_popup_layout">
    <property name="spacing">
     <number>15</number>
    </property>
@@ -29,7 +29,7 @@
    <item>
     <widget class="QLabel" name="title_label">
      <property name="text">
-      <string>Удалить мастер пароль</string>
+      <string>Введите мастер пароль</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -93,7 +93,7 @@
       <number>15</number>
      </property>
      <item>
-      <widget class="QPushButton" name="delete_button">
+      <widget class="QPushButton" name="continue_button">
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
@@ -101,12 +101,12 @@
         <enum>Qt::TabFocus</enum>
        </property>
        <property name="text">
-        <string>Удалить</string>
+        <string>Продолжить</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="cancel_button">
+      <widget class="QPushButton" name="exit_button">
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
@@ -114,7 +114,7 @@
         <enum>Qt::TabFocus</enum>
        </property>
        <property name="text">
-        <string>Отмена</string>
+        <string>Закрыть</string>
        </property>
       </widget>
      </item>

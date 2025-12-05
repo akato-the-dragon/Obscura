@@ -72,11 +72,16 @@
      <addaction name="separator"/>
      <addaction name="action_service_status"/>
     </widget>
+    <widget class="QMenu" name="theme_menu">
+     <property name="title">
+      <string>Тема</string>
+     </property>
+    </widget>
     <addaction name="general_action"/>
     <addaction name="separator"/>
     <addaction name="master_password_menu"/>
     <addaction name="service_menu"/>
-    <addaction name="settings_action"/>
+    <addaction name="theme_menu"/>
     <addaction name="separator"/>
     <addaction name="exit_action"/>
    </widget>
@@ -84,8 +89,6 @@
     <property name="title">
      <string>Пароли</string>
     </property>
-    <addaction name="passwords_action"/>
-    <addaction name="separator"/>
     <addaction name="add_password_action"/>
     <addaction name="clear_passwords_list"/>
     <addaction name="separator"/>
@@ -120,16 +123,6 @@
   <action name="exit_action">
    <property name="text">
     <string>Выход</string>
-   </property>
-  </action>
-  <action name="settings_action">
-   <property name="text">
-    <string>Настройки</string>
-   </property>
-  </action>
-  <action name="passwords_action">
-   <property name="text">
-    <string>Пароли</string>
    </property>
   </action>
   <action name="add_password_action">
