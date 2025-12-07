@@ -1,0 +1,47 @@
+#main_widget {
+    border-image: url(resources/images/background.png) 0 0 0 0 stretch stretch;
+}
+
+QMenuBar {
+	background-color: #577399;
+	color: #e9ecef;
+	border-bottom: 2px solid #495867;
+	font-family: "Roboto Medium";
+    font-size: 12pt;
+}
+QMenuBar::item {
+	padding: 5px 15px;
+}
+QMenuBar::item:selected {
+	background-color: #6686b3;
+	border-bottom: 2px solid #e9ecef;
+}
+
+QMenu {
+	padding: 0px;
+	background-color: #343a40;
+	color: #e9ecef;
+	font-family: "Roboto";
+	font-size: 12pt;
+}
+QMenu::item {
+	padding: 5px 45px 5px 5px;
+	font-family: "Roboto";
+	font-size: 12pt;
+}
+QMenu::item:selected {	
+	background-color: #495057;
+	border-left: 2px solid #e9ecef;
+}
+QMenu::item:disabled {	
+	color: #adb5bd;
+}
+QMenu::right-arrow {
+	width: 16px;
+	height: 16px;
+	image: url(resources/images/icons/arrow_right.svg);
+}
+QMenu::separator {
+	height: 1px;
+	background-color: #212529;
+}

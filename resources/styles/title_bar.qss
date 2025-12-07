@@ -1,0 +1,40 @@
+#blackout_widget {
+    background-color: rgba(0, 0, 0, 128);
+    border-bottom: 1px solid rgba(0, 0, 0, 128);
+}
+
+#status_widget {
+    qproperty-radius: 50%;
+
+    qproperty-online_color: #538d22;
+    qproperty-offline_color: #c52233;
+}
+
+#separator_line {
+    border-color: #ced4da;
+}
+
+QPushButton {
+    border: none;
+}
+
+#close_button {
+    qproperty-color: #c52233;
+    qproperty-hover_animation_end_value: 200;
+    qproperty-click_animation_end_value: 255;
+}
+
+QLabel {
+    font-family: "Roboto";
+    color: #e9ecef
+}
+
+#name_label {
+    font-family: "Tektur Medium";
+    font-size: 22pt;
+}
+
+#version_label {
+    font-size: 12pt;
+    color: #ced4da;
+}

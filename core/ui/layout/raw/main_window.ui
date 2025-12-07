@@ -10,6 +10,12 @@
     <height>520</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>500</width>
+    <height>0</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -54,16 +60,6 @@
     <property name="title">
      <string>Главная</string>
     </property>
-    <widget class="QMenu" name="master_password_menu">
-     <property name="title">
-      <string>Мастер пароль</string>
-     </property>
-     <addaction name="add_master_password_action"/>
-     <addaction name="edit_master_password_action"/>
-     <addaction name="remove_master_password_action"/>
-     <addaction name="separator"/>
-     <addaction name="master_password_status_action"/>
-    </widget>
     <widget class="QMenu" name="service_menu">
      <property name="title">
       <string>Сервис</string>
@@ -72,16 +68,9 @@
      <addaction name="separator"/>
      <addaction name="action_service_status"/>
     </widget>
-    <widget class="QMenu" name="theme_menu">
-     <property name="title">
-      <string>Тема</string>
-     </property>
-    </widget>
     <addaction name="general_action"/>
     <addaction name="separator"/>
-    <addaction name="master_password_menu"/>
     <addaction name="service_menu"/>
-    <addaction name="theme_menu"/>
     <addaction name="separator"/>
     <addaction name="exit_action"/>
    </widget>
@@ -107,6 +96,7 @@
      <string>Справка</string>
     </property>
     <addaction name="about_action"/>
+    <addaction name="github_page_action"/>
     <addaction name="separator"/>
     <addaction name="action_version"/>
    </widget>
@@ -202,6 +192,11 @@
   <action name="clear_passwords_list">
    <property name="text">
     <string>Сброс паролей</string>
+   </property>
+  </action>
+  <action name="github_page_action">
+   <property name="text">
+    <string>Страница github</string>
    </property>
   </action>
  </widget>

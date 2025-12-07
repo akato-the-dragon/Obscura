@@ -88,7 +88,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="search_button">
+         <widget class="FadingButton" name="search_button">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -121,7 +121,7 @@
        </layout>
       </item>
       <item>
-       <widget class="QPushButton" name="add_button">
+       <widget class="FadingButton" name="add_button">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -238,7 +238,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="delete_button">
+       <widget class="FadingButton" name="delete_button">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
@@ -255,6 +255,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>FadingButton</class>
+   <extends>QPushButton</extends>
+   <header>core.ui.element.button</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

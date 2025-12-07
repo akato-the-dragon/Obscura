@@ -1,0 +1,98 @@
+#top_widget {
+    background-color: #212529;
+}
+
+QLabel {
+    font-family: "Roboto";
+}
+
+#title_label {
+    font-family: "Tektur Medium";
+    font-size: 20pt;
+    color: #e9ecef;
+}
+
+QPushButton {
+    border: none;
+}
+
+#add_button, #search_button {
+    qproperty-background_color: #495867;
+    qproperty-radius: 5;
+}
+
+#delete_button {
+    font-family: "Roboto";
+    font-size: 10pt;
+    padding: 2px;
+    color: #e9ecef;
+
+    qproperty-background_color: #212529;
+    qproperty-radius: 2;
+    qproperty-color: #c52233;
+    qproperty-hover_animation_end_value: 200;
+    qproperty-click_animation_end_value: 255;
+}
+
+/* Table widget */
+QTableWidget {
+	color: rgb(229, 227, 218);
+	font-size: 20pt;
+}
+
+QTableWidget::item {
+	border-bottom: 2px solid rgb(77, 73, 68);
+}
+
+QTableWidget::item:selected {
+
+}
+
+QHeaderView::section {
+	border: null;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+QHeaderView::down-arrow {
+	width: 24px;
+	height: 24px;
+	image: url("resources/images/icons/arrow_down.svg");
+}
+
+QHeaderView::up-arrow {
+	width: 24px;
+	height: 24px;
+	image: url("resources/images/icons/arrow_up.svg");          
+}
+
+/* Scroll bar*/
+QScrollBar {
+	width: 4px;
+}
+
+QScrollBar:vertical, QScrollBar:horizontal {
+	background-color: rgb(74, 70, 66);
+}
+
+QScrollBar::handle:vertical {
+	background: rgb(251, 86, 7);
+	min-height: 64px;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    background: none;
+    height: 0px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+    width: 0px;
+    height: 0px;
+    background: none;
+}

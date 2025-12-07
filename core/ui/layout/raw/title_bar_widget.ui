@@ -48,7 +48,7 @@
     <widget class="QWidget" name="blackout_widget" native="true">
      <layout class="QHBoxLayout" name="blackout_layout">
       <property name="spacing">
-       <number>10</number>
+       <number>5</number>
       </property>
       <property name="leftMargin">
        <number>0</number>
@@ -71,7 +71,7 @@
          <number>5</number>
         </property>
         <item>
-         <widget class="QWidget" name="status_widget" native="true">
+         <widget class="StatusWidget" name="status_widget" native="true">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -80,14 +80,14 @@
           </property>
           <property name="minimumSize">
            <size>
-            <width>30</width>
-            <height>30</height>
+            <width>25</width>
+            <height>25</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>30</width>
-            <height>30</height>
+            <width>25</width>
+            <height>25</height>
            </size>
           </property>
          </widget>
@@ -110,38 +110,13 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>ver. &lt;version&gt;</string>
+         <string>Вер. &lt;version&gt;</string>
         </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="settings_button">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
         </property>
-        <property name="minimumSize">
-         <size>
-          <width>30</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>30</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="focusPolicy">
-         <enum>Qt::TabFocus</enum>
-        </property>
-        <property name="text">
-         <string/>
+        <property name="margin">
+         <number>5</number>
         </property>
        </widget>
       </item>
@@ -156,13 +131,13 @@
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>35</height>
+          <height>25</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>35</height>
+          <height>25</height>
          </size>
         </property>
         <property name="orientation">
@@ -176,7 +151,7 @@
          <number>0</number>
         </property>
         <item>
-         <widget class="QPushButton" name="minimize_button">
+         <widget class="FadingButton" name="minimize_button">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -207,7 +182,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="maximize_button">
+         <widget class="FadingButton" name="maximize_button">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -238,7 +213,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="close_button">
+         <widget class="FadingButton" name="close_button">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -275,6 +250,19 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>FadingButton</class>
+   <extends>QPushButton</extends>
+   <header>core.ui.element.button</header>
+  </customwidget>
+  <customwidget>
+   <class>StatusWidget</class>
+   <extends>QWidget</extends>
+   <header>core.ui.element.widget</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -1,0 +1,18 @@
+#c52233 - Close / Status (Offline)
+#538d22 - Status (Online)
+
+#ced4da
+#adb5bd - Text (Inactive)
+#6c757d
+
+#f8f9fa
+#e9ecef - Text
+#dee2e6
+
+#6686b3
+#577399 - Accent color
+#495867
+
+#495057
+#343a40 - Background
+#212529
