@@ -12,7 +12,6 @@ from core.ui.layout.main_window import Ui_main_window
 # Import ui objects
 from core.ui.object.title_bar import TitleBar
 from core.ui.object.main_page import MainPage
-from core.ui.object.about_page import AboutPage
 
 
 class MainWindow(FramelessMainWindow):
@@ -36,9 +35,6 @@ class MainWindow(FramelessMainWindow):
         # Raise title bar
         self.titleBar.raise_()
 
-    def __open_page(self, index: int) -> None:
-        self._ui.stacked_widget.setCurrentIndex(index)
-
     def setup_ui(self) -> None:
         # Move menu bar
         self.menuBar().hide()
@@ -58,15 +54,8 @@ class MainWindow(FramelessMainWindow):
         self._main_page = MainPage()
         self._ui.stacked_widget.addWidget(self._main_page)
 
-        # Add about page
-        self._about_page = AboutPage()
-        self._ui.stacked_widget.addWidget(self._about_page)
-
         # Connect actions
-        self._ui.general_action.triggered.connect(lambda: self.__open_page(0))
         self._ui.exit_action.triggered.connect(lambda: self.window().close())
-        
-        self._ui.about_action.triggered.connect(lambda: self.__open_page(1))
         self._ui.github_page_action.triggered.connect(lambda: webbrowser.open("https://github.com/akato-the-dragon/Obscura"))
     
     def style_ui(self) -> None:

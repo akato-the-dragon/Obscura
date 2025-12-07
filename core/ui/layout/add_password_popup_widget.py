@@ -16,14 +16,15 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
-    QLineEdit, QPushButton, QSizePolicy, QVBoxLayout,
-    QWidget)
+    QLineEdit, QSizePolicy, QVBoxLayout, QWidget)
+
+from core.ui.element.button import FadingButton
 
 class Ui_add_master_popup_widget(object):
     def setupUi(self, add_master_popup_widget):
         if not add_master_popup_widget.objectName():
             add_master_popup_widget.setObjectName(u"add_master_popup_widget")
-        add_master_popup_widget.resize(400, 200)
+        add_master_popup_widget.resize(400, 201)
         self.add_master_popup_layout = QVBoxLayout(add_master_popup_widget)
         self.add_master_popup_layout.setSpacing(10)
         self.add_master_popup_layout.setObjectName(u"add_master_popup_layout")
@@ -38,7 +39,7 @@ class Ui_add_master_popup_widget(object):
         self.password_content_layout.setObjectName(u"password_content_layout")
         self.password_content_layout.setHorizontalSpacing(10)
         self.password_content_layout.setVerticalSpacing(15)
-        self.password_content_layout.setContentsMargins(0, -1, 30, 5)
+        self.password_content_layout.setContentsMargins(30, -1, 30, 5)
         self.site_url_label = QLabel(add_master_popup_widget)
         self.site_url_label.setObjectName(u"site_url_label")
         self.site_url_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
@@ -51,7 +52,7 @@ class Ui_add_master_popup_widget(object):
 
         self.password_content_layout.addWidget(self.password_label, 2, 0, 1, 1)
 
-        self.show_password_button = QPushButton(add_master_popup_widget)
+        self.show_password_button = FadingButton(add_master_popup_widget)
         self.show_password_button.setObjectName(u"show_password_button")
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -68,7 +69,6 @@ class Ui_add_master_popup_widget(object):
         self.password_line_edit.setObjectName(u"password_line_edit")
         self.password_line_edit.setMinimumSize(QSize(0, 25))
         self.password_line_edit.setMaximumSize(QSize(16777215, 25))
-        self.password_line_edit.setFocusPolicy(Qt.TabFocus)
         self.password_line_edit.setEchoMode(QLineEdit.Password)
 
         self.password_content_layout.addWidget(self.password_line_edit, 2, 1, 1, 1)
@@ -89,7 +89,6 @@ class Ui_add_master_popup_widget(object):
         self.login_line_edit.setObjectName(u"login_line_edit")
         self.login_line_edit.setMinimumSize(QSize(0, 25))
         self.login_line_edit.setMaximumSize(QSize(16777215, 25))
-        self.login_line_edit.setFocusPolicy(Qt.TabFocus)
 
         self.password_content_layout.addWidget(self.login_line_edit, 1, 1, 1, 1)
 
@@ -99,16 +98,16 @@ class Ui_add_master_popup_widget(object):
         self.buttons_layout = QHBoxLayout()
         self.buttons_layout.setSpacing(10)
         self.buttons_layout.setObjectName(u"buttons_layout")
-        self.buttons_layout.setContentsMargins(15, -1, 15, -1)
-        self.add_button = QPushButton(add_master_popup_widget)
+        self.buttons_layout.setContentsMargins(45, -1, 45, -1)
+        self.add_button = FadingButton(add_master_popup_widget)
         self.add_button.setObjectName(u"add_button")
-        self.add_button.setFocusPolicy(Qt.TabFocus)
+        self.add_button.setMinimumSize(QSize(0, 30))
 
         self.buttons_layout.addWidget(self.add_button)
 
-        self.cancel_button = QPushButton(add_master_popup_widget)
+        self.cancel_button = FadingButton(add_master_popup_widget)
         self.cancel_button.setObjectName(u"cancel_button")
-        self.cancel_button.setFocusPolicy(Qt.TabFocus)
+        self.cancel_button.setMinimumSize(QSize(0, 30))
 
         self.buttons_layout.addWidget(self.cancel_button)
 

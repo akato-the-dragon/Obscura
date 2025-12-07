@@ -1,6 +1,7 @@
 # Import modules
 from core.meta import DEVELOPMENT_BUILD
 from PySide6.QtWidgets import QApplication
+from core.data_base import create_passwords_table
 from core.utility.run_counter import increment_counter
 from core.style.font_loader import load_fonts_from_directory
 import sys
@@ -23,6 +24,9 @@ if __name__ == "__main__":
 
     # Load fonts
     load_fonts_from_directory(":/fonts")
+
+    # Create data base file
+    create_passwords_table()
 
     # Create main window
     loading_window = MainWindow()

@@ -39,7 +39,7 @@
        <number>10</number>
       </property>
       <property name="leftMargin">
-       <number>5</number>
+       <number>10</number>
       </property>
       <property name="topMargin">
        <number>0</number>
@@ -66,7 +66,10 @@
       <item>
        <layout class="QHBoxLayout" name="search_layout">
         <property name="spacing">
-         <number>5</number>
+         <number>10</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
         </property>
         <item>
          <widget class="QLineEdit" name="search_line_edit">
@@ -119,6 +122,25 @@
          </widget>
         </item>
        </layout>
+      </item>
+      <item>
+       <widget class="FadingButton" name="delete_button">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>40</horstretch>
+          <verstretch>40</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="FadingButton" name="add_button">
@@ -182,6 +204,11 @@
      </attribute>
      <column>
       <property name="text">
+       <string>Id</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
        <string>Сайт</string>
       </property>
      </column>
@@ -195,62 +222,6 @@
        <string>Пароль</string>
       </property>
      </column>
-    </widget>
-   </item>
-   <item>
-    <widget class="QWidget" name="bottom_widget" native="true">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>30</height>
-      </size>
-     </property>
-     <layout class="QHBoxLayout" name="bottom_layout">
-      <property name="spacing">
-       <number>5</number>
-      </property>
-      <property name="leftMargin">
-       <number>5</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>5</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
-      <item>
-       <widget class="QLabel" name="choosed_label">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>Выбрано:</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="FadingButton" name="delete_button">
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="focusPolicy">
-         <enum>Qt::TabFocus</enum>
-        </property>
-        <property name="text">
-         <string>Удалить</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
     </widget>
    </item>
   </layout>

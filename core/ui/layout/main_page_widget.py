@@ -36,7 +36,7 @@ class Ui_main_page_widget(object):
         self.top_layout = QHBoxLayout(self.top_widget)
         self.top_layout.setSpacing(10)
         self.top_layout.setObjectName(u"top_layout")
-        self.top_layout.setContentsMargins(5, 0, 5, 0)
+        self.top_layout.setContentsMargins(10, 0, 5, 0)
         self.title_label = QLabel(self.top_widget)
         self.title_label.setObjectName(u"title_label")
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
@@ -48,8 +48,9 @@ class Ui_main_page_widget(object):
         self.top_layout.addWidget(self.title_label)
 
         self.search_layout = QHBoxLayout()
-        self.search_layout.setSpacing(5)
+        self.search_layout.setSpacing(10)
         self.search_layout.setObjectName(u"search_layout")
+        self.search_layout.setContentsMargins(-1, -1, 0, -1)
         self.search_line_edit = QLineEdit(self.top_widget)
         self.search_line_edit.setObjectName(u"search_line_edit")
         sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Fixed)
@@ -79,6 +80,17 @@ class Ui_main_page_widget(object):
 
         self.top_layout.addLayout(self.search_layout)
 
+        self.delete_button = FadingButton(self.top_widget)
+        self.delete_button.setObjectName(u"delete_button")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
+        sizePolicy3.setHorizontalStretch(40)
+        sizePolicy3.setVerticalStretch(40)
+        sizePolicy3.setHeightForWidth(self.delete_button.sizePolicy().hasHeightForWidth())
+        self.delete_button.setSizePolicy(sizePolicy3)
+        self.delete_button.setMinimumSize(QSize(40, 40))
+
+        self.top_layout.addWidget(self.delete_button)
+
         self.add_button = FadingButton(self.top_widget)
         self.add_button.setObjectName(u"add_button")
         sizePolicy2.setHeightForWidth(self.add_button.sizePolicy().hasHeightForWidth())
@@ -94,14 +106,16 @@ class Ui_main_page_widget(object):
         self.main_page_layout.addWidget(self.top_widget)
 
         self.passwords_table_widget = QTableWidget(main_page_widget)
-        if (self.passwords_table_widget.columnCount() < 3):
-            self.passwords_table_widget.setColumnCount(3)
+        if (self.passwords_table_widget.columnCount() < 4):
+            self.passwords_table_widget.setColumnCount(4)
         __qtablewidgetitem = QTableWidgetItem()
         self.passwords_table_widget.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
         self.passwords_table_widget.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         __qtablewidgetitem2 = QTableWidgetItem()
         self.passwords_table_widget.setHorizontalHeaderItem(2, __qtablewidgetitem2)
+        __qtablewidgetitem3 = QTableWidgetItem()
+        self.passwords_table_widget.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         self.passwords_table_widget.setObjectName(u"passwords_table_widget")
         self.passwords_table_widget.setFrameShape(QFrame.NoFrame)
         self.passwords_table_widget.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
@@ -114,31 +128,6 @@ class Ui_main_page_widget(object):
 
         self.main_page_layout.addWidget(self.passwords_table_widget)
 
-        self.bottom_widget = QWidget(main_page_widget)
-        self.bottom_widget.setObjectName(u"bottom_widget")
-        self.bottom_widget.setMinimumSize(QSize(0, 30))
-        self.bottom_layout = QHBoxLayout(self.bottom_widget)
-        self.bottom_layout.setSpacing(5)
-        self.bottom_layout.setObjectName(u"bottom_layout")
-        self.bottom_layout.setContentsMargins(5, 0, 5, 0)
-        self.choosed_label = QLabel(self.bottom_widget)
-        self.choosed_label.setObjectName(u"choosed_label")
-        sizePolicy.setHeightForWidth(self.choosed_label.sizePolicy().hasHeightForWidth())
-        self.choosed_label.setSizePolicy(sizePolicy)
-        self.choosed_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.bottom_layout.addWidget(self.choosed_label)
-
-        self.delete_button = FadingButton(self.bottom_widget)
-        self.delete_button.setObjectName(u"delete_button")
-        self.delete_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.delete_button.setFocusPolicy(Qt.TabFocus)
-
-        self.bottom_layout.addWidget(self.delete_button)
-
-
-        self.main_page_layout.addWidget(self.bottom_widget)
-
 
         self.retranslateUi(main_page_widget)
 
@@ -148,15 +137,16 @@ class Ui_main_page_widget(object):
     def retranslateUi(self, main_page_widget):
         self.title_label.setText(QCoreApplication.translate("main_page_widget", u"\u041f\u0430\u0440\u043e\u043b\u0438", None))
         self.search_button.setText("")
+        self.delete_button.setText("")
         self.add_button.setText("")
         ___qtablewidgetitem = self.passwords_table_widget.horizontalHeaderItem(0)
-        ___qtablewidgetitem.setText(QCoreApplication.translate("main_page_widget", u"\u0421\u0430\u0439\u0442", None));
+        ___qtablewidgetitem.setText(QCoreApplication.translate("main_page_widget", u"Id", None));
         ___qtablewidgetitem1 = self.passwords_table_widget.horizontalHeaderItem(1)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("main_page_widget", u"\u041b\u043e\u0433\u0438\u043d", None));
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("main_page_widget", u"\u0421\u0430\u0439\u0442", None));
         ___qtablewidgetitem2 = self.passwords_table_widget.horizontalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("main_page_widget", u"\u041f\u0430\u0440\u043e\u043b\u044c", None));
-        self.choosed_label.setText(QCoreApplication.translate("main_page_widget", u"\u0412\u044b\u0431\u0440\u0430\u043d\u043e:", None))
-        self.delete_button.setText(QCoreApplication.translate("main_page_widget", u"\u0423\u0434\u0430\u043b\u0438\u0442\u044c", None))
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("main_page_widget", u"\u041b\u043e\u0433\u0438\u043d", None));
+        ___qtablewidgetitem3 = self.passwords_table_widget.horizontalHeaderItem(3)
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("main_page_widget", u"\u041f\u0430\u0440\u043e\u043b\u044c", None));
         pass
     # retranslateUi
 

@@ -62,20 +62,32 @@
       <number>10</number>
      </property>
      <property name="leftMargin">
-      <number>15</number>
+      <number>45</number>
      </property>
      <property name="rightMargin">
-      <number>15</number>
+      <number>45</number>
      </property>
      <item>
-      <widget class="QPushButton" name="continue_button">
+      <widget class="FadingButton" name="continue_button">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
        <property name="text">
         <string>Продолжить</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="cancel_button">
+      <widget class="FadingButton" name="cancel_button">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
        <property name="text">
         <string>Отменить</string>
        </property>
@@ -85,6 +97,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>FadingButton</class>
+   <extends>QPushButton</extends>
+   <header>core.ui.element.button</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

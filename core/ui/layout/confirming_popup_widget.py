@@ -15,8 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QPushButton,
-    QSizePolicy, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QSizePolicy,
+    QVBoxLayout, QWidget)
+
+from core.ui.element.button import FadingButton
 
 class Ui_confirming_popup_widget(object):
     def setupUi(self, confirming_popup_widget):
@@ -52,14 +54,16 @@ class Ui_confirming_popup_widget(object):
         self.buttons_layout = QHBoxLayout()
         self.buttons_layout.setSpacing(10)
         self.buttons_layout.setObjectName(u"buttons_layout")
-        self.buttons_layout.setContentsMargins(15, -1, 15, -1)
-        self.continue_button = QPushButton(confirming_popup_widget)
+        self.buttons_layout.setContentsMargins(45, -1, 45, -1)
+        self.continue_button = FadingButton(confirming_popup_widget)
         self.continue_button.setObjectName(u"continue_button")
+        self.continue_button.setMinimumSize(QSize(0, 30))
 
         self.buttons_layout.addWidget(self.continue_button)
 
-        self.cancel_button = QPushButton(confirming_popup_widget)
+        self.cancel_button = FadingButton(confirming_popup_widget)
         self.cancel_button.setObjectName(u"cancel_button")
+        self.cancel_button.setMinimumSize(QSize(0, 30))
 
         self.buttons_layout.addWidget(self.cancel_button)
 

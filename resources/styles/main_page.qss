@@ -22,22 +22,14 @@ QPushButton {
 }
 
 #delete_button {
-    font-family: "Roboto";
-    font-size: 10pt;
-    padding: 2px;
-    color: #e9ecef;
-
-    qproperty-background_color: #212529;
-    qproperty-radius: 2;
-    qproperty-color: #c52233;
-    qproperty-hover_animation_end_value: 200;
-    qproperty-click_animation_end_value: 255;
+    qproperty-background_color: #495867;
+    qproperty-radius: 5;
 }
 
 /* Table widget */
 QTableWidget {
 	color: rgb(229, 227, 218);
-	font-size: 20pt;
+	font-size: 10pt;
 }
 
 QTableWidget::item {
@@ -50,7 +42,7 @@ QTableWidget::item:selected {
 
 QHeaderView::section {
 	border: null;
-	font-size: 20px;
+	font-size: 12px;
 	font-weight: bold;
 }
 
