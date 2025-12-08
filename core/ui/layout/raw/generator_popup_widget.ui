@@ -12,7 +12,7 @@
   </property>
   <layout class="QVBoxLayout" name="generator_popup_layout">
    <property name="spacing">
-    <number>45</number>
+    <number>30</number>
    </property>
    <property name="leftMargin">
     <number>15</number>
@@ -39,7 +39,7 @@
       <number>30</number>
      </property>
      <property name="rightMargin">
-      <number>150</number>
+      <number>90</number>
      </property>
      <property name="horizontalSpacing">
       <number>10</number>
@@ -63,6 +63,15 @@
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="minimum">
+        <number>4</number>
+       </property>
+       <property name="maximum">
+        <number>64</number>
+       </property>
+       <property name="value">
+        <number>8</number>
        </property>
       </widget>
      </item>
@@ -108,11 +117,20 @@
      </item>
      <item row="1" column="1">
       <widget class="QCheckBox" name="use_chars_check_box">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>25</height>
+        </size>
+       </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="focusPolicy">
-        <enum>Qt::TabFocus</enum>
        </property>
        <property name="text">
         <string/>
@@ -121,11 +139,20 @@
      </item>
      <item row="2" column="1">
       <widget class="QCheckBox" name="use_upper_register_check_box">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>25</height>
+        </size>
+       </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="focusPolicy">
-        <enum>Qt::TabFocus</enum>
        </property>
        <property name="text">
         <string/>
@@ -134,11 +161,20 @@
      </item>
      <item row="3" column="1">
       <widget class="QCheckBox" name="use_symbols_check_box">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>25</height>
+        </size>
+       </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="focusPolicy">
-        <enum>Qt::TabFocus</enum>
        </property>
        <property name="text">
         <string/>
@@ -197,9 +233,6 @@
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
-       <property name="focusPolicy">
-        <enum>Qt::TabFocus</enum>
-       </property>
        <property name="text">
         <string/>
        </property>
@@ -228,16 +261,13 @@
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
-       <property name="focusPolicy">
-        <enum>Qt::TabFocus</enum>
-       </property>
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="copy_and_close_button">
+      <widget class="QPushButton" name="copy_button">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -253,11 +283,8 @@
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
-       <property name="focusPolicy">
-        <enum>Qt::TabFocus</enum>
-       </property>
        <property name="text">
-        <string>Скопировать и закрыть</string>
+        <string>Скопировать</string>
        </property>
       </widget>
      </item>
@@ -277,9 +304,6 @@
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="focusPolicy">
-        <enum>Qt::TabFocus</enum>
        </property>
        <property name="text">
         <string>Закрыть</string>

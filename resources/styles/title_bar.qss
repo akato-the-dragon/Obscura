@@ -1,6 +1,6 @@
 #blackout_widget {
     background-color: rgba(0, 0, 0, 128);
-    border-bottom: 1px solid rgba(0, 0, 0, 128);
+    border-bottom: 1px solid rgba(0, 0, 0, 100);
 }
 
 #status_widget {
@@ -11,22 +11,27 @@
 }
 
 #separator_line {
-    border-color: #ced4da;
+    border-color: #e0e1dd;
 }
 
 QPushButton {
     border: none;
 }
 
+#minimize_button, #maximize_button {
+    qproperty-hover_animation_end_value: 50;
+    qproperty-click_animation_end_value: 100;
+}
+
 #close_button {
     qproperty-color: #c52233;
     qproperty-hover_animation_end_value: 200;
-    qproperty-click_animation_end_value: 255;
+    qproperty-click_animation_end_value: 250;
 }
 
 QLabel {
     font-family: "Roboto";
-    color: #e9ecef
+    color: #fefffa
 }
 
 #name_label {
@@ -36,5 +41,5 @@ QLabel {
 
 #version_label {
     font-size: 12pt;
-    color: #ced4da;
+    color: #adadaa;
 }

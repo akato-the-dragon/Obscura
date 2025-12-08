@@ -37,7 +37,6 @@ class Ui_generator_short_popup_widget(object):
         self.password_line_edit = QLineEdit(generator_short_popup_widget)
         self.password_line_edit.setObjectName(u"password_line_edit")
         self.password_line_edit.setMinimumSize(QSize(0, 25))
-        self.password_line_edit.setFocusPolicy(Qt.TabFocus)
         self.password_line_edit.setEchoMode(QLineEdit.Password)
         self.password_line_edit.setReadOnly(True)
 
@@ -53,7 +52,6 @@ class Ui_generator_short_popup_widget(object):
         self.show_button.setMinimumSize(QSize(25, 25))
         self.show_button.setMaximumSize(QSize(25, 25))
         self.show_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.show_button.setFocusPolicy(Qt.TabFocus)
 
         self.password_layout.addWidget(self.show_button)
 
@@ -64,22 +62,22 @@ class Ui_generator_short_popup_widget(object):
         self.generate_button.setMinimumSize(QSize(25, 25))
         self.generate_button.setMaximumSize(QSize(25, 25))
         self.generate_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.generate_button.setFocusPolicy(Qt.TabFocus)
 
         self.password_layout.addWidget(self.generate_button)
 
-        self.copy_and_close_button = QPushButton(generator_short_popup_widget)
-        self.copy_and_close_button.setObjectName(u"copy_and_close_button")
-        self.copy_and_close_button.setMinimumSize(QSize(0, 25))
-        self.copy_and_close_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.copy_and_close_button.setFocusPolicy(Qt.TabFocus)
+        self.copy_button = QPushButton(generator_short_popup_widget)
+        self.copy_button.setObjectName(u"copy_button")
+        self.copy_button.setMinimumSize(QSize(0, 25))
+        self.copy_button.setMaximumSize(QSize(16777215, 25))
+        self.copy_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
 
-        self.password_layout.addWidget(self.copy_and_close_button)
+        self.password_layout.addWidget(self.copy_button)
 
         self.close_button = QPushButton(generator_short_popup_widget)
         self.close_button.setObjectName(u"close_button")
+        self.close_button.setMinimumSize(QSize(0, 25))
+        self.close_button.setMaximumSize(QSize(16777215, 25))
         self.close_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.close_button.setFocusPolicy(Qt.TabFocus)
 
         self.password_layout.addWidget(self.close_button)
 
@@ -96,7 +94,7 @@ class Ui_generator_short_popup_widget(object):
         self.title_label.setText(QCoreApplication.translate("generator_short_popup_widget", u"\u0411\u044b\u0441\u0442\u0440\u044b\u0439 \u043f\u0430\u0440\u043e\u043b\u044c", None))
         self.show_button.setText("")
         self.generate_button.setText("")
-        self.copy_and_close_button.setText(QCoreApplication.translate("generator_short_popup_widget", u"\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0438 \u0437\u0430\u043a\u0440\u044b\u0442\u044c", None))
+        self.copy_button.setText(QCoreApplication.translate("generator_short_popup_widget", u"\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c", None))
         self.close_button.setText(QCoreApplication.translate("generator_short_popup_widget", u"\u0417\u0430\u043a\u0440\u044b\u0442\u044c", None))
         pass
     # retranslateUi

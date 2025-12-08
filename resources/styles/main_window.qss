@@ -3,24 +3,24 @@
 }
 
 QMenuBar {
-	background-color: #577399;
-	color: #e9ecef;
-	border-bottom: 2px solid #495867;
-	font-family: "Roboto Medium";
+	background-color: #415a77;
+	color: #fefffa;
+	border-bottom: 1px solid #263445;
+	font-family: "Roboto";
     font-size: 12pt;
 }
 QMenuBar::item {
 	padding: 5px 15px;
 }
 QMenuBar::item:selected {
-	background-color: #6686b3;
-	border-bottom: 2px solid #e9ecef;
+	background-color: #5e82ab;
+	border-bottom: 1px solid #fefffa;
 }
 
 QMenu {
 	padding: 0px;
-	background-color: #343a40;
-	color: #e9ecef;
+	background-color: #1b263b;
+	color: #fefffa;
 	font-family: "Roboto";
 	font-size: 12pt;
 }
@@ -30,8 +30,8 @@ QMenu::item {
 	font-size: 12pt;
 }
 QMenu::item:selected {	
-	background-color: #495057;
-	border-left: 2px solid #e9ecef;
+	background-color: #32476e;
+	border-left: 2px solid #fefffa;
 }
 QMenu::item:disabled {	
 	color: #adb5bd;
@@ -43,5 +43,5 @@ QMenu::right-arrow {
 }
 QMenu::separator {
 	height: 1px;
-	background-color: #212529;
+	background-color: #0f1621;
 }

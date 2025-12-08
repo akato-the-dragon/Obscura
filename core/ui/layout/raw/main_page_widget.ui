@@ -66,7 +66,7 @@
       <item>
        <layout class="QHBoxLayout" name="search_layout">
         <property name="spacing">
-         <number>10</number>
+         <number>0</number>
         </property>
         <property name="rightMargin">
          <number>0</number>
@@ -85,13 +85,10 @@
             <height>30</height>
            </size>
           </property>
-          <property name="focusPolicy">
-           <enum>Qt::TabFocus</enum>
-          </property>
          </widget>
         </item>
         <item>
-         <widget class="FadingButton" name="search_button">
+         <widget class="QPushButton" name="search_button">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -113,9 +110,6 @@
           <property name="cursor">
            <cursorShape>PointingHandCursor</cursorShape>
           </property>
-          <property name="focusPolicy">
-           <enum>Qt::TabFocus</enum>
-          </property>
           <property name="text">
            <string/>
           </property>
@@ -124,14 +118,20 @@
        </layout>
       </item>
       <item>
-       <widget class="FadingButton" name="delete_button">
+       <widget class="QPushButton" name="delete_button">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>40</horstretch>
-          <verstretch>40</verstretch>
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="maximumSize">
          <size>
           <width>40</width>
           <height>40</height>
@@ -143,7 +143,7 @@
        </widget>
       </item>
       <item>
-       <widget class="FadingButton" name="add_button">
+       <widget class="QPushButton" name="add_button">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -165,9 +165,6 @@
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
-        <property name="focusPolicy">
-         <enum>Qt::TabFocus</enum>
-        </property>
         <property name="text">
          <string/>
         </property>
@@ -177,7 +174,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QTableWidget" name="passwords_table_widget">
+    <widget class="QTableWidget" name="table_widget">
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
      </property>
@@ -226,13 +223,5 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>FadingButton</class>
-   <extends>QPushButton</extends>
-   <header>core.ui.element.button</header>
-  </customwidget>
- </customwidgets>
  <resources/>
- <connections/>
 </ui>

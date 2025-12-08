@@ -25,7 +25,7 @@ class Ui_generator_popup_widget(object):
             generator_popup_widget.setObjectName(u"generator_popup_widget")
         generator_popup_widget.resize(500, 300)
         self.generator_popup_layout = QVBoxLayout(generator_popup_widget)
-        self.generator_popup_layout.setSpacing(45)
+        self.generator_popup_layout.setSpacing(30)
         self.generator_popup_layout.setObjectName(u"generator_popup_layout")
         self.generator_popup_layout.setContentsMargins(15, 15, 15, 10)
         self.title_label = QLabel(generator_popup_widget)
@@ -37,12 +37,15 @@ class Ui_generator_popup_widget(object):
         self.parameters_layout.setObjectName(u"parameters_layout")
         self.parameters_layout.setHorizontalSpacing(10)
         self.parameters_layout.setVerticalSpacing(15)
-        self.parameters_layout.setContentsMargins(30, -1, 150, -1)
+        self.parameters_layout.setContentsMargins(30, -1, 90, -1)
         self.lenght_spin_box = QSpinBox(generator_popup_widget)
         self.lenght_spin_box.setObjectName(u"lenght_spin_box")
         self.lenght_spin_box.setMinimumSize(QSize(0, 25))
         self.lenght_spin_box.setMaximumSize(QSize(16777215, 25))
         self.lenght_spin_box.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.lenght_spin_box.setMinimum(4)
+        self.lenght_spin_box.setMaximum(64)
+        self.lenght_spin_box.setValue(8)
 
         self.parameters_layout.addWidget(self.lenght_spin_box, 0, 1, 1, 1)
 
@@ -72,22 +75,25 @@ class Ui_generator_popup_widget(object):
 
         self.use_chars_check_box = QCheckBox(generator_popup_widget)
         self.use_chars_check_box.setObjectName(u"use_chars_check_box")
+        self.use_chars_check_box.setMinimumSize(QSize(0, 25))
+        self.use_chars_check_box.setMaximumSize(QSize(16777215, 25))
         self.use_chars_check_box.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.use_chars_check_box.setFocusPolicy(Qt.TabFocus)
 
         self.parameters_layout.addWidget(self.use_chars_check_box, 1, 1, 1, 1)
 
         self.use_upper_register_check_box = QCheckBox(generator_popup_widget)
         self.use_upper_register_check_box.setObjectName(u"use_upper_register_check_box")
+        self.use_upper_register_check_box.setMinimumSize(QSize(0, 25))
+        self.use_upper_register_check_box.setMaximumSize(QSize(16777215, 25))
         self.use_upper_register_check_box.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.use_upper_register_check_box.setFocusPolicy(Qt.TabFocus)
 
         self.parameters_layout.addWidget(self.use_upper_register_check_box, 2, 1, 1, 1)
 
         self.use_symbols_check_box = QCheckBox(generator_popup_widget)
         self.use_symbols_check_box.setObjectName(u"use_symbols_check_box")
+        self.use_symbols_check_box.setMinimumSize(QSize(0, 25))
+        self.use_symbols_check_box.setMaximumSize(QSize(16777215, 25))
         self.use_symbols_check_box.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.use_symbols_check_box.setFocusPolicy(Qt.TabFocus)
 
         self.parameters_layout.addWidget(self.use_symbols_check_box, 3, 1, 1, 1)
 
@@ -102,6 +108,7 @@ class Ui_generator_popup_widget(object):
         self.password_line_edit.setMinimumSize(QSize(0, 25))
         self.password_line_edit.setMaximumSize(QSize(16777215, 25))
         self.password_line_edit.setEchoMode(QLineEdit.Password)
+        self.password_line_edit.setReadOnly(True)
 
         self.password_layout.addWidget(self.password_line_edit)
 
@@ -115,7 +122,6 @@ class Ui_generator_popup_widget(object):
         self.show_button.setMinimumSize(QSize(25, 25))
         self.show_button.setMaximumSize(QSize(25, 25))
         self.show_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.show_button.setFocusPolicy(Qt.TabFocus)
 
         self.password_layout.addWidget(self.show_button)
 
@@ -126,25 +132,22 @@ class Ui_generator_popup_widget(object):
         self.generate_button.setMinimumSize(QSize(25, 25))
         self.generate_button.setMaximumSize(QSize(25, 25))
         self.generate_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.generate_button.setFocusPolicy(Qt.TabFocus)
 
         self.password_layout.addWidget(self.generate_button)
 
-        self.copy_and_close_button = QPushButton(generator_popup_widget)
-        self.copy_and_close_button.setObjectName(u"copy_and_close_button")
-        self.copy_and_close_button.setMinimumSize(QSize(0, 25))
-        self.copy_and_close_button.setMaximumSize(QSize(16777215, 25))
-        self.copy_and_close_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.copy_and_close_button.setFocusPolicy(Qt.TabFocus)
+        self.copy_button = QPushButton(generator_popup_widget)
+        self.copy_button.setObjectName(u"copy_button")
+        self.copy_button.setMinimumSize(QSize(0, 25))
+        self.copy_button.setMaximumSize(QSize(16777215, 25))
+        self.copy_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
 
-        self.password_layout.addWidget(self.copy_and_close_button)
+        self.password_layout.addWidget(self.copy_button)
 
         self.close_button = QPushButton(generator_popup_widget)
         self.close_button.setObjectName(u"close_button")
         self.close_button.setMinimumSize(QSize(0, 25))
         self.close_button.setMaximumSize(QSize(16777215, 25))
         self.close_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.close_button.setFocusPolicy(Qt.TabFocus)
 
         self.password_layout.addWidget(self.close_button)
 
@@ -168,7 +171,7 @@ class Ui_generator_popup_widget(object):
         self.use_symbols_check_box.setText("")
         self.show_button.setText("")
         self.generate_button.setText("")
-        self.copy_and_close_button.setText(QCoreApplication.translate("generator_popup_widget", u"\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0438 \u0437\u0430\u043a\u0440\u044b\u0442\u044c", None))
+        self.copy_button.setText(QCoreApplication.translate("generator_popup_widget", u"\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c", None))
         self.close_button.setText(QCoreApplication.translate("generator_popup_widget", u"\u0417\u0430\u043a\u0440\u044b\u0442\u044c", None))
         pass
     # retranslateUi

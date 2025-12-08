@@ -1,12 +1,11 @@
-# Import modules
-from PySide6.QtWidgets import   QApplication, QWidget, QLineEdit
+from PySide6.QtGui import QIcon
+from PySide6.QtCore import QSize
 from core.utility.password_generator import generate_password
+from PySide6.QtWidgets import QWidget, QLineEdit, QApplication
 from core.style.style_manager import load_stylesheet_from_file
 
-# Import ui layouts
 from core.ui.layout.generator_popup_widget import Ui_generator_popup_widget
 
-# Import ui elements
 from core.ui.element.popup_core import CorePopup
 
 
@@ -17,23 +16,29 @@ class GeneratorPopup(CorePopup):
         self._ui = Ui_generator_popup_widget()
         self._ui.setupUi(self)
 
-        self._password_visible = False
-
-        # Setup ui
         self.setup_ui()
-
-        # Style ui
         self.style_ui()
 
-    def __change_password_visiblity(self) -> None:
-        self._password_visible = not self._password_visible
-        
-        if self._password_visible:
-            self._ui.password_line_edit.setEchoMode(QLineEdit.EchoMode.Normal)
-        else:
-            self._ui.password_line_edit.setEchoMode(QLineEdit.EchoMode.Password)
+    def open(self) -> None:
+        self.generate_password()
+        super().open()
 
-    def __regenerate_password(self) -> None:
+    def cancel(self) -> None:
+        self._ui.lenght_spin_box.setValue(8)
+        self._ui.use_chars_check_box.setChecked(False)
+        self._ui.use_upper_register_check_box.setChecked(False)
+        self._ui.use_symbols_check_box.setChecked(False)
+        self._ui.password_line_edit.clear()
+        self._ui.password_line_edit.setEchoMode(QLineEdit.EchoMode.Password)
+
+        super().close()
+
+    def copy_password(self) -> None:
+        clipboard = QApplication.clipboard()
+        clipboard.setText(self._ui.password_line_edit.text())
+        self.cancel()
+
+    def generate_password(self) -> None:
         lenght = self._ui.lenght_spin_box.value()
         use_chars = self._ui.use_chars_check_box.isChecked()
         use_upper = self._ui.use_upper_register_check_box.isChecked()
@@ -42,26 +47,30 @@ class GeneratorPopup(CorePopup):
         generated_password = generate_password(lenght, use_chars, use_upper, use_symbols)
         self._ui.password_line_edit.setText(generated_password)
 
-    def __copy_and_close(self) -> None:
-        clipboard = QApplication.clipboard()
-        clipboard.setText(self._ui.password_line_edit.text())
-        self.__close()
-
-    def __close(self):
-        self._ui.password_line_edit.clear()
-        return super().close()
+    def show_hide_password(self) -> None:
+        if self._ui.password_line_edit.echoMode() == QLineEdit.EchoMode.Password:
+            self._ui.password_line_edit.setEchoMode(QLineEdit.EchoMode.Normal)
+        else:
+            self._ui.password_line_edit.setEchoMode(QLineEdit.EchoMode.Password)
 
     def setup_ui(self) -> None:
-        self.__regenerate_password()
-
-        self._ui.show_button.clicked.connect(self.__change_password_visiblity)
-        self._ui.generate_button.clicked.connect(self.__regenerate_password)
-        self._ui.copy_and_close_button.clicked.connect(self.__copy_and_close)
-        self._ui.close_button.clicked.connect(self.__close)
+        self._ui.show_button.clicked.connect(self.show_hide_password)
+        self._ui.generate_button.clicked.connect(self.generate_password)
+        self._ui.copy_button.clicked.connect(self.copy_password)
+        self._ui.close_button.clicked.connect(self.cancel)
     
     def style_ui(self) -> None:
-        # Set stylesheet
         load_stylesheet_from_file(self, "resources/styles/generator_popup.qss")
+
+        show_icon_size = QSize(16, 16)
+        show_icon = QIcon("resources/images/icons/show.svg")
+        self._ui.show_button.setIconSize(show_icon_size)
+        self._ui.show_button.setIcon(show_icon)
+
+        generate_icon_size = QSize(16, 16)
+        generate_icon = QIcon("resources/images/icons/retry.svg")
+        self._ui.generate_button.setIconSize(generate_icon_size)
+        self._ui.generate_button.setIcon(generate_icon)
     
     @property
     def ui(self) -> Ui_generator_popup_widget:

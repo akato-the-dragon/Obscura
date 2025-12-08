@@ -77,7 +77,6 @@
      <string>Пароли</string>
     </property>
     <addaction name="import_csv_action"/>
-    <addaction name="export_csv_action"/>
    </widget>
    <widget class="QMenu" name="generator_menu">
     <property name="title">
@@ -107,11 +106,6 @@
   <action name="import_csv_action">
    <property name="text">
     <string>Импорт из csv...</string>
-   </property>
-  </action>
-  <action name="export_csv_action">
-   <property name="text">
-    <string>Экспорт в csv...</string>
    </property>
   </action>
   <action name="create_password">
@@ -152,5 +146,4 @@
   </action>
  </widget>
  <resources/>
- <connections/>
 </ui>

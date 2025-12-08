@@ -2,7 +2,7 @@
 from typing import Optional, Final
 from PySide6.QtWidgets import QWidget
 from PySide6.QtGui import QPainter, QPen, QBrush, QColor
-from PySide6.QtCore import Qt, QPoint, QPropertyAnimation, QVariantAnimation, QEasingCurve, QRect, Property, QEvent
+from PySide6.QtCore import Qt, QVariantAnimation, QEasingCurve, QRect, Property, QEvent
 
 
 class StatusWidget(QWidget):

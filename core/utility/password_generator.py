@@ -6,7 +6,7 @@ def generate_password(lenght: int = 8, use_chars = True, use_upper = True, use_s
     numbers = list("0123456789")
     chars = list("qwertyuiopasdfghjklzxcvbnm")
     chars_upper = list(map(str.upper, chars))
-    symbols = list("!@#$%^&*()_-+.,/|")
+    symbols = list("!@#$%^&*()_+-=[]{}|;:,.<>?")
 
     password_list = numbers
 
