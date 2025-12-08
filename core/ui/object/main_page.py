@@ -4,7 +4,6 @@ from PySide6.QtGui import QColor
 from PySide6.QtCore import QSize, Qt
 from PySide6.QtWidgets import QWidget
 from PySide6.QtWidgets import QHeaderView
-from core.utility.widget_tools import label_insert_text
 from core.data_base import get_passwords_list, remove_password
 from PySide6.QtWidgets import QTableWidgetItem, QAbstractItemView
 from core.style.style_manager import load_stylesheet_from_file, load_coloured_icon
@@ -13,6 +12,7 @@ from core.style.style_manager import load_stylesheet_from_file, load_coloured_ic
 from core.ui.layout.main_page_widget import Ui_main_page_widget
 
 # Import ui objects
+from core.ui.object.confirm_popup import ConfirmPopup
 from core.ui.object.add_password_popup import AddPasswordPopup
 
 
@@ -26,6 +26,9 @@ class MainPage(QWidget):
 
         self._add_password_popup = AddPasswordPopup(self)
         self._add_password_popup.close()
+
+        self._confirm_popup = ConfirmPopup(self, self.delete_passwords)
+        self._confirm_popup.close()
 
         # Setup ui
         self.setup_ui()
@@ -62,6 +65,12 @@ class MainPage(QWidget):
             remove_password(id)
             self.load_passwords_list()
 
+    def confirm_delete_passowrds(self) -> None:
+        counter = len(self._ui.passwords_table_widget.selectionModel().selectedRows())
+
+        if counter > 0:
+            self._confirm_popup.open()
+
     def search_passwords(self) -> None:
         table = self._ui.passwords_table_widget
         target_text = self.ui.search_line_edit.text().lower()
@@ -88,7 +97,7 @@ class MainPage(QWidget):
 
         self._ui.add_button.clicked.connect(self._add_password_popup.open)
         self._ui.search_button.clicked.connect(self.search_passwords)
-        self._ui.delete_button.clicked.connect(self.delete_passwords)
+        self._ui.delete_button.clicked.connect(self.confirm_delete_passowrds)
     
     def style_ui(self) -> None:
         # Set stylesheet

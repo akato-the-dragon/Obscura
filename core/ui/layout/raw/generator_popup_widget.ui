@@ -169,6 +169,9 @@
        <property name="echoMode">
         <enum>QLineEdit::Password</enum>
        </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>

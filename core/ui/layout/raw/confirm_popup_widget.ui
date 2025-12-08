@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>confirming_popup_widget</class>
- <widget class="QWidget" name="confirming_popup_widget">
+ <class>confirm_popup_widget</class>
+ <widget class="QWidget" name="confirm_popup_widget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -31,7 +31,7 @@
      <item>
       <widget class="QLabel" name="title_label">
        <property name="text">
-        <string>&lt;ttile&gt;</string>
+        <string>Вы уверены?</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -47,7 +47,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>&lt;description&gt;</string>
+        <string>Это действие нельзя будет отменить!</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>

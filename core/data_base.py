@@ -26,7 +26,7 @@ def get_passwords_list() -> list[tuple]:
 def get_password_item(id: int) -> tuple:
     cursor = connection.cursor()
     query = """SELECT id, site_url, login, password, description FROM password WHERE id=?"""
-    password_item = cursor.execute(query, (id)).fetchall()[0]
+    password_item = cursor.execute(query, (id,)).fetchall()[0]
     decrypted_password = decrypt(password_item[3])
     return (password_item[0], password_item[1], password_item[2],
             decrypted_password, password_item[4])
@@ -42,4 +42,4 @@ def append_password(site_url: str, login: str, password: str, description: str =
 def remove_password(id: int) -> None:
     cursor = connection.cursor()
     query = """DELETE FROM password WHERE id=?"""
-    cursor.execute(query, (id))
+    cursor.execute(query, (id,))

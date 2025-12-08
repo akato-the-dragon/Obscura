@@ -76,9 +76,6 @@
     <property name="title">
      <string>Пароли</string>
     </property>
-    <addaction name="add_password_action"/>
-    <addaction name="clear_passwords_list"/>
-    <addaction name="separator"/>
     <addaction name="import_csv_action"/>
     <addaction name="export_csv_action"/>
    </widget>
@@ -105,11 +102,6 @@
   <action name="exit_action">
    <property name="text">
     <string>Выход</string>
-   </property>
-  </action>
-  <action name="add_password_action">
-   <property name="text">
-    <string>Добавить...</string>
    </property>
   </action>
   <action name="import_csv_action">
@@ -151,11 +143,6 @@
    </property>
    <property name="text">
     <string>&lt;service_status&gt;</string>
-   </property>
-  </action>
-  <action name="clear_passwords_list">
-   <property name="text">
-    <string>Сброс паролей</string>
    </property>
   </action>
   <action name="github_page_action">
