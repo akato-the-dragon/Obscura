@@ -9,7 +9,7 @@ class PasswordDatabase(QObject):
 
     def __init__(self, parent: Optional[QObject] = None) -> None:
         super().__init__(parent)
-        self._connection = sqlite3.connect("passwords.db", autocommit=True)
+        self._connection = sqlite3.connect("passwords.db", autocommit=True, check_same_thread=False)
 
     def create_passwords_table(self) -> None:
         cursor = self._connection.cursor()

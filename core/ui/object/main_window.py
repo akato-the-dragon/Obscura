@@ -1,5 +1,7 @@
 from typing import Optional
 from core.meta import get_full_version
+from core.service import ExtensionService
+from PySide6.QtCore import QThread, QTimer
 from PySide6.QtWidgets import QWidget, QMenuBar
 from qframelesswindow import FramelessMainWindow
 from core.style.style_manager import load_stylesheet_from_file
@@ -36,10 +38,42 @@ class MainWindow(FramelessMainWindow):
         self._cvs_import_popup = CsvImportPopup(self)
         self._cvs_import_popup.close()
 
+        self._extension_service = ExtensionService(parent=self)
+        self.start_extension_service()
+
         self.setup_ui()
         self.style_ui()
 
         self.titleBar.raise_()
+
+    def get_service_status(self) -> None:
+        status = "Online" if self._extension_service.is_service_online() else "Offline"
+        self._ui.action_service_status.setText(status)
+
+        QTimer.singleShot(5000, self.get_service_status)
+    
+    def get_extension_status(self) -> None:
+        status = self._extension_service.is_extension_online()
+        self._title_bar.ui.status_widget.set_status(status)
+
+        QTimer.singleShot(5000, self.get_extension_status)
+
+    def start_extension_service(self) -> None:
+        thread = QThread(self)
+        self._extension_service.moveToThread(thread)
+
+        thread.started.connect(self._extension_service.start_service)
+        self._extension_service.server_stoped.connect(thread.quit)
+        thread.finished.connect(self._extension_service.stop_service)
+
+        thread.start()
+
+    def stop_extension_service(self) -> None:
+        self._extension_service.thread().terminate()
+
+    def restart_extension_service(self) -> None:
+        self.stop_extension_service()
+        self.start_extension_service()
 
     def setup_ui(self) -> None:
         self.menuBar().hide()
@@ -58,9 +92,13 @@ class MainWindow(FramelessMainWindow):
         self._ui.create_password.triggered.connect(self._generator_popup.open)
         self._ui.create_quick_password.triggered.connect(self._generator_short_popup.open)
         self._ui.import_csv_action.triggered.connect(self._cvs_import_popup.open)
+        self._ui.restart_service_action.triggered.connect(self.restart_extension_service)
         self._ui.github_page_action.triggered.connect(lambda: webbrowser.open("https://github.com/akato-the-dragon/Obscura"))
         
+        self.get_service_status()
         self._ui.action_version.setText(get_full_version())
+
+        self.get_extension_status()
     
     def style_ui(self) -> None:
         load_stylesheet_from_file(self, "resources/styles/main_window.qss")
