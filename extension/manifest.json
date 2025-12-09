@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Obscura extension",
+  "version": "1.0",
+  "description": "Умное сохранение и автозаполнение паролей",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "webRequest",
+    "webNavigation"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

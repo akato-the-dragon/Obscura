@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Obscura extension</title>
+    <style>
+        :root {
+            --header-bg: #7e6cc4; /* Фиолетовый */
+            --bg: #2d2a38; /* Тёмный фон */
+            --text: #ffffff;
+            --accent: #007acc;
+            --green: #4caf50;
+        }
+        body {
+            width: 300px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .header {
+            background: var(--header-bg);
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .header span {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        .github-icon {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            border: 2px solid white;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+        }
+        .github-icon img {
+            width: 16px;
+            height: 16px;
+        }
+        .settings {
+            padding: 20px;
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 15px 0;
+            font-size: 16px;
+        }
+        .checkbox-label input {
+            accent-color: var(--accent);
+            width: 20px;
+            height: 20px;
+        }
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+        }
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--green);
+            border-radius: 50%;
+        }
+        .status-text {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <h1>Obscura</h1>
+            <span>extension</span>
+        </div>
+        <a href="https://github.com/akato-the-dragon/Obscura" target="_blank" class="github-icon">
+            <!-- Можно заменить на SVG или PNG -->
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ij4KICAgIDxwYXRoIGQ9Ik0xMiAwQzUuMzcgMCAwIDUuMzcgMCAxMmMwIDQuOTIgMi45NiA5LjEzIDcuMzEgMTEuMDVjMC41MiAwLjEgMS4wNSAwLjE3IDEuNTggMC4xNyAxLjUzIDAgMy4wNi0wLjUyIDQuMjctMS40OGMtMC4yOS0wLjA5LTExLjAyLTEuNDgtMTAuODUtMTYuNjJjMC4xOC0xLjMxIDAuODYtMi41MiAyLjAzLTMuNDVjMC4yMi0wLjA5IDAuNDQtMC4xOCAwLjY2LTAuMjhjLTAuMjItMC4xLTAuNDQtMC4xOS0wLjY2LTAuMjhjLTEuNjctMC45My0yLjgzLTIuMTQtMi4wMy0zLjQ1Yy0wLjE4LTUuMTQgOS41Ni0xLjUzIDEwLjg1LTEuNTNjMC4xOCAwLjAxIDAuMzYgMC4wMiAwLjU0IDAuMDNjMC4xOCAwLjAxIDAuMzYgMC4wMiAwLjU0IDAuMDNjMC4xOCAwLjAxIDAuMzYgMC4wMiAwLjU0IDAuMDNjMC4xOCAwLjAxIDAuMzYgMC4wMiAwLjU0IDAuMDNjMC4xOCAwLjAxIDAuMzYgMC4wMiAwLjU0IDAuMDNjMC4xOCAwLjAxIDAuMzYgMC4wMiAwLjU0IDAuMDNjMC4xOCAwLjAxIDAuMzYgMC4wMiAwLjU0IDAuMDNjMC4xOCAwLjAxIDAuMzYgMC4wMiAwLjU0IDAuMDNjMC4xOCAwLjAxIDAuMzYgMC4wMiAwLjU0IDAuMDNjMC4xOCAwLjAx
