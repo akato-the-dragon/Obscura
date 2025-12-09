@@ -1,4 +1,5 @@
 from typing import Optional
+from PySide6.QtCore import QTimer
 from core.meta import get_full_version
 from PySide6.QtWidgets import QWidget, QMenuBar
 from qframelesswindow import FramelessMainWindow
@@ -41,6 +42,15 @@ class MainWindow(FramelessMainWindow):
 
         self.titleBar.raise_()
 
+    def restart_service(self) -> None:
+        pass
+
+    def update_service_status(self) -> None:
+        QTimer.singleShot(5000, self.update_service_status)
+
+    def update_extension_connection(self) -> None:
+        QTimer.singleShot(5000, self.update_extension_connection)
+
     def setup_ui(self) -> None:
         self.menuBar().hide()
         old_menu_bar = self._ui.menu_bar
@@ -58,7 +68,11 @@ class MainWindow(FramelessMainWindow):
         self._ui.create_password.triggered.connect(self._generator_popup.open)
         self._ui.create_quick_password.triggered.connect(self._generator_short_popup.open)
         self._ui.import_csv_action.triggered.connect(self._cvs_import_popup.open)
+        self._ui.restart_service_action.triggered.connect(self.restart_service)
         self._ui.github_page_action.triggered.connect(lambda: webbrowser.open("https://github.com/akato-the-dragon/Obscura"))
+
+        self.update_service_status()
+        self.update_extension_connection()
         
         self._ui.action_version.setText(get_full_version())
     
