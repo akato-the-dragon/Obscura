@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Obscura</title>
-    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="popup.css">
 </head>
 <body>
     <div class="header">
         <h1>Obscura <span>extension</span></h1>
-        <a href="https://github.com/akato-the-dragon/Obscura" target="_blank" class="github-icon">🐙</a>
+        <a href="https://github.com/akato-the-dragon/Obscura" target="_blank" class="github-icon">
+            <img src="icons/github.svg" alt="GitHub">
+        </a>
     </div>
 
     <div class="settings">
@@ -19,12 +21,6 @@
             <input type="checkbox" id="autoFillPasswords" checked> <span class="label-text">Автозаполнение паролей</span>
         </label>
     </div>
-
-    <div class="status" id="backendStatus">
-        <div class="status-indicator"></div>
-        <span>Проверка сервера...</span>
-    </div>
-
-    <script src="js/popup.js"></script>
+    <script src="popup.js"></script>
 </body>
 </html>

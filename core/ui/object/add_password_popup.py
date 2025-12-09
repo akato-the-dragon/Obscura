@@ -23,9 +23,9 @@ class AddPasswordPopup(CorePopup):
         login = self._ui.login_line_edit.text()
         password = self._ui.password_line_edit.text()
 
-        password_database.add_password(site_url, login, password)
-
-        self.cancel()
+        if site_url != "" and password != "":
+            password_database.add_password(site_url, login, password)
+            self.cancel()
 
     def cancel(self) -> None:
         self._ui.site_url_line_edit.clear()

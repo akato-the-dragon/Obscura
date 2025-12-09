@@ -80,8 +80,9 @@ class MainPage(QWidget):
             )
 
             if responce == QMessageBox.StandardButton.Yes:
-                for selected_row in selection_model.selectedRows(0):
-                    id = self._ui.table_widget.item(selected_row.row(), 0).text()
+                rows_to_delete = sorted([index.row() for index in selection_model.selectedRows()], reverse=True)
+                for selected_row in rows_to_delete:
+                    id = self._ui.table_widget.item(selected_row, 0).text()
                     password_database.remove_password(id)
 
     def search_password_data(self) -> None:
