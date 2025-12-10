@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'main_page_widget.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.10.1
+## Created by: Qt User Interface Compiler version 6.9.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -82,6 +82,7 @@ class Ui_main_page_widget(object):
         self.delete_button.setSizePolicy(sizePolicy2)
         self.delete_button.setMinimumSize(QSize(40, 40))
         self.delete_button.setMaximumSize(QSize(40, 40))
+        self.delete_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
 
         self.top_layout.addWidget(self.delete_button)
 
@@ -130,8 +131,17 @@ class Ui_main_page_widget(object):
     def retranslateUi(self, main_page_widget):
         self.title_label.setText(QCoreApplication.translate("main_page_widget", u"\u041f\u0430\u0440\u043e\u043b\u0438", None))
         self.search_button.setText("")
+#if QT_CONFIG(shortcut)
+        self.search_button.setShortcut(QCoreApplication.translate("main_page_widget", u"Return", None))
+#endif // QT_CONFIG(shortcut)
         self.delete_button.setText("")
+#if QT_CONFIG(shortcut)
+        self.delete_button.setShortcut(QCoreApplication.translate("main_page_widget", u"Del", None))
+#endif // QT_CONFIG(shortcut)
         self.add_button.setText("")
+#if QT_CONFIG(shortcut)
+        self.add_button.setShortcut(QCoreApplication.translate("main_page_widget", u"Ins", None))
+#endif // QT_CONFIG(shortcut)
         ___qtablewidgetitem = self.table_widget.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("main_page_widget", u"Id", None));
         ___qtablewidgetitem1 = self.table_widget.horizontalHeaderItem(1)

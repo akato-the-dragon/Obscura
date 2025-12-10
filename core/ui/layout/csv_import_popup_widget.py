@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'csv_import_popup_widget.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.10.1
+## Created by: Qt User Interface Compiler version 6.9.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -63,6 +63,7 @@ class Ui_csv_import_popup_widget(object):
         self.csv_file_browser_button.setSizePolicy(sizePolicy)
         self.csv_file_browser_button.setMinimumSize(QSize(25, 25))
         self.csv_file_browser_button.setMaximumSize(QSize(25, 25))
+        self.csv_file_browser_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
 
         self.csv_file_layout.addWidget(self.csv_file_browser_button)
 
@@ -132,12 +133,14 @@ class Ui_csv_import_popup_widget(object):
         self.import_button = QPushButton(csv_import_popup_widget)
         self.import_button.setObjectName(u"import_button")
         self.import_button.setMinimumSize(QSize(0, 30))
+        self.import_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
 
         self.buttons_layout.addWidget(self.import_button)
 
         self.cancel_button = QPushButton(csv_import_popup_widget)
         self.cancel_button.setObjectName(u"cancel_button")
         self.cancel_button.setMinimumSize(QSize(0, 30))
+        self.cancel_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
 
         self.buttons_layout.addWidget(self.cancel_button)
 

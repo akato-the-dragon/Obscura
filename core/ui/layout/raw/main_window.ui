@@ -16,9 +16,6 @@
     <height>0</height>
    </size>
   </property>
-  <property name="windowTitle">
-   <string>MainWindow</string>
-  </property>
   <widget class="QWidget" name="main_widget">
    <layout class="QVBoxLayout" name="main_layout">
     <property name="spacing">
@@ -64,11 +61,21 @@
      <property name="title">
       <string>Сервис</string>
      </property>
-     <addaction name="restart_service_action"/>
-     <addaction name="separator"/>
      <addaction name="action_service_status"/>
+     <addaction name="action_extension_status"/>
+    </widget>
+    <widget class="QMenu" name="master_menu">
+     <property name="title">
+      <string>Мастер пароль</string>
+     </property>
+     <addaction name="add_master_action"/>
+     <addaction name="remove_master_action"/>
+     <addaction name="separator"/>
+     <addaction name="master_status_action"/>
     </widget>
     <addaction name="service_menu"/>
+    <addaction name="separator"/>
+    <addaction name="master_menu"/>
     <addaction name="separator"/>
     <addaction name="exit_action"/>
    </widget>
@@ -77,6 +84,7 @@
      <string>Пароли</string>
     </property>
     <addaction name="import_csv_action"/>
+    <addaction name="export_csv_action"/>
    </widget>
    <widget class="QMenu" name="generator_menu">
     <property name="title">
@@ -90,6 +98,8 @@
      <string>Справка</string>
     </property>
     <addaction name="github_page_action"/>
+    <addaction name="separator"/>
+    <addaction name="download_extension_action"/>
     <addaction name="separator"/>
     <addaction name="action_version"/>
    </widget>
@@ -126,17 +136,12 @@
     <string>&lt;version&gt;</string>
    </property>
   </action>
-  <action name="restart_service_action">
-   <property name="text">
-    <string>Перезапустить</string>
-   </property>
-  </action>
   <action name="action_service_status">
    <property name="enabled">
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>&lt;service_status&gt;</string>
+    <string>Сервис: &lt;service_status&gt;</string>
    </property>
   </action>
   <action name="github_page_action">
@@ -144,6 +149,43 @@
     <string>Страница github</string>
    </property>
   </action>
+  <action name="download_extension_action">
+   <property name="text">
+    <string>Скачать расширение</string>
+   </property>
+  </action>
+  <action name="export_csv_action">
+   <property name="text">
+    <string>Экспорт из csv...</string>
+   </property>
+  </action>
+  <action name="add_master_action">
+   <property name="text">
+    <string>Установить</string>
+   </property>
+  </action>
+  <action name="remove_master_action">
+   <property name="text">
+    <string>Снять</string>
+   </property>
+  </action>
+  <action name="master_status_action">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Статус: &lt;master_status&gt;</string>
+   </property>
+  </action>
+  <action name="action_extension_status">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Расширение: &lt;extension_status&gt;</string>
+   </property>
+  </action>
  </widget>
  <resources/>
+ <connections/>
 </ui>

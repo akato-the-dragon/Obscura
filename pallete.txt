@@ -1,20 +1,17 @@
-#c52233 - Close / Status (Offline)
-#538d22 - Status (Online)
+#f3f3f3
+#e7e7e7
+#cecece
+#9c9d9d
+#838585
 
-#fefffa
-#e0e1dd
-#adadaa
+#ff4800
+#f24500
+#e54100
+#d93d00
+#cc3a00
 
-#9ab6db
-#778da9
-#526175
-
-#5e82ab
-#415a77
-#263445
-
-#32476e
-#1b263b
-#0f1621
-
-#0d1b2a
+#393b3b
+#2d2e2e
+#202121
+#141414
+#070808

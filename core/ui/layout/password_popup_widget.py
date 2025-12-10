@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'password_popup_widget.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.10.1
+## Created by: Qt User Interface Compiler version 6.9.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -23,7 +23,7 @@ class Ui_password_popup_widget(object):
     def setupUi(self, password_popup_widget):
         if not password_popup_widget.objectName():
             password_popup_widget.setObjectName(u"password_popup_widget")
-        password_popup_widget.resize(400, 250)
+        password_popup_widget.resize(450, 275)
         self.password_popup_layout = QVBoxLayout(password_popup_widget)
         self.password_popup_layout.setSpacing(10)
         self.password_popup_layout.setObjectName(u"password_popup_layout")
@@ -38,7 +38,7 @@ class Ui_password_popup_widget(object):
         self.password_content_layout.setObjectName(u"password_content_layout")
         self.password_content_layout.setHorizontalSpacing(10)
         self.password_content_layout.setVerticalSpacing(20)
-        self.password_content_layout.setContentsMargins(30, -1, 30, 15)
+        self.password_content_layout.setContentsMargins(30, -1, 45, 15)
         self.site_url_label = QLabel(password_popup_widget)
         self.site_url_label.setObjectName(u"site_url_label")
         self.site_url_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
@@ -60,6 +60,7 @@ class Ui_password_popup_widget(object):
         self.show_button.setSizePolicy(sizePolicy)
         self.show_button.setMinimumSize(QSize(25, 25))
         self.show_button.setMaximumSize(QSize(25, 25))
+        self.show_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.show_button.setFocusPolicy(Qt.TabFocus)
 
         self.password_content_layout.addWidget(self.show_button, 2, 2, 1, 1)
@@ -94,6 +95,11 @@ class Ui_password_popup_widget(object):
 
         self.password_popup_layout.addLayout(self.password_content_layout)
 
+        self.error_label = QLabel(password_popup_widget)
+        self.error_label.setObjectName(u"error_label")
+
+        self.password_popup_layout.addWidget(self.error_label)
+
         self.buttons_layout = QHBoxLayout()
         self.buttons_layout.setSpacing(10)
         self.buttons_layout.setObjectName(u"buttons_layout")
@@ -101,12 +107,14 @@ class Ui_password_popup_widget(object):
         self.update_button = QPushButton(password_popup_widget)
         self.update_button.setObjectName(u"update_button")
         self.update_button.setMinimumSize(QSize(0, 30))
+        self.update_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
 
         self.buttons_layout.addWidget(self.update_button)
 
         self.cancel_button = QPushButton(password_popup_widget)
         self.cancel_button.setObjectName(u"cancel_button")
         self.cancel_button.setMinimumSize(QSize(0, 30))
+        self.cancel_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
 
         self.buttons_layout.addWidget(self.cancel_button)
 
@@ -125,6 +133,7 @@ class Ui_password_popup_widget(object):
         self.password_label.setText(QCoreApplication.translate("password_popup_widget", u"\u041f\u0430\u0440\u043e\u043b\u044c:", None))
         self.show_button.setText("")
         self.login_label.setText(QCoreApplication.translate("password_popup_widget", u"\u041b\u043e\u0433\u0438\u043d:", None))
+        self.error_label.setText(QCoreApplication.translate("password_popup_widget", u"<error>", None))
         self.update_button.setText(QCoreApplication.translate("password_popup_widget", u"\u0418\u0437\u043c\u0435\u043d\u0438\u0442\u044c", None))
         self.cancel_button.setText(QCoreApplication.translate("password_popup_widget", u"\u041e\u0442\u043c\u0435\u043d\u0430", None))
         pass
