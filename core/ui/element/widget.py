@@ -92,7 +92,8 @@ class StatusWidget(QWidget):
         return self._status
 
     def set_status(self, status: int = Status.ONLINE) -> None:
-        self._status = status
+        if self._status != status:
+            self._animation.setDirection(QVariantAnimation.Direction.Forward if status else QVariantAnimation.Direction.Backward)
+            self._animation.start()
 
-        self._animation.setDirection(QVariantAnimation.Direction.Forward if self._status else QVariantAnimation.Direction.Backward)
-        self._animation.start()
+        self._status = status

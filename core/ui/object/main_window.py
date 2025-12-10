@@ -38,7 +38,7 @@ class MainWindow(FramelessMainWindow):
         self._cvs_import_popup = CsvImportPopup(self)
         self._cvs_import_popup.close()
 
-        self._extension_service = ExtensionService(parent=self)
+        self._extension_service = ExtensionService()
         self.start_extension_service()
 
         self.setup_ui()

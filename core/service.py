@@ -66,7 +66,15 @@ class ExtensionService(QObject):
             site_url = data.get("domain")
             login = data.get("login")
             password = data.get("password")
-            
+
+            password_list = password_database.get_password_list()
+
+            for password_item in password_list:
+                if (password_item[1] == site_url and 
+                    password_item[2] == login):
+                    
+                    password_database.update_password(password_item[0], site_url, login, password)
+
             password_database.add_password(site_url, login, password)
 
     def is_extension_online(self) -> bool:

@@ -19,9 +19,9 @@
 }
 
 body {
-    width: 250px;
+    width: 300px;
     font-family: 'Roboto', sans-serif;
-    background: #0f1621;
+    background: #212529;
     color: #fefffa;
     padding: 15px;
     border-radius: 8px;
@@ -31,21 +31,21 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
     border-bottom: 1px solid #e0e1dd;
 }
 
 .header h1 {
     font-family: 'Tektur', sans-serif;
-    font-size: 16px;
+    font-size: 16pt;
     font-weight: bold;
     color: #fefffa;
 }
 
 .header h1 span {
     font-weight: normal;
-    font-size: 14px;
+    font-size: 10pt;
     opacity: 0.7;
 }
 
@@ -71,7 +71,7 @@ body {
 .settings {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
 }
 
 .checkbox-label {
@@ -94,7 +94,7 @@ body {
     -moz-appearance: none;
     width: 18px;
     height: 18px;
-    border: 2px solid #415a77;
+    border: 2px solid #5e82ab;
     border-radius: 4px;
     position: relative;
     cursor: pointer;
@@ -102,7 +102,7 @@ body {
 }
 
 .checkbox-label input[type="checkbox"]:checked {
-    background: #415a77;
+    background: #5e82ab;
 }
 
 .checkbox-label input[type="checkbox"]:checked::after {
@@ -112,10 +112,10 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fefffa;
-    font-size: 12px;
+    font-size: 10pt;
     font-weight: bold;
 }
 
 .label-text {
-    font-size: 14px;
+    font-size: 12pt;
 }
