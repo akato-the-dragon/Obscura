@@ -1,4 +1,4 @@
-#remove_master_popup_widget {
+#set_master_popup_widget {
     background-color: #1b263b;
     border-radius: 10px;
 }

@@ -30,6 +30,7 @@ class Ui_generator_popup_widget(object):
         self.generator_popup_layout.setContentsMargins(15, 15, 15, 10)
         self.title_label = QLabel(generator_popup_widget)
         self.title_label.setObjectName(u"title_label")
+        self.title_label.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
 
         self.generator_popup_layout.addWidget(self.title_label)
 

@@ -29,14 +29,14 @@ class Ui_remove_master_popup_widget(object):
         self.remove_master_popup_layout.setContentsMargins(15, 15, 15, 10)
         self.title_label = QLabel(remove_master_popup_widget)
         self.title_label.setObjectName(u"title_label")
-        self.title_label.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.title_label.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
 
         self.remove_master_popup_layout.addWidget(self.title_label)
 
         self.password_layout = QHBoxLayout()
         self.password_layout.setSpacing(10)
         self.password_layout.setObjectName(u"password_layout")
-        self.password_layout.setContentsMargins(30, -1, 45, -1)
+        self.password_layout.setContentsMargins(30, -1, 45, 15)
         self.password_label = QLabel(remove_master_popup_widget)
         self.password_label.setObjectName(u"password_label")
         self.password_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)

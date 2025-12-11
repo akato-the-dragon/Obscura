@@ -23,14 +23,14 @@ class Ui_set_master_popup_widget(object):
     def setupUi(self, set_master_popup_widget):
         if not set_master_popup_widget.objectName():
             set_master_popup_widget.setObjectName(u"set_master_popup_widget")
-        set_master_popup_widget.resize(400, 200)
+        set_master_popup_widget.resize(450, 250)
         self.set_master_popup_layout = QVBoxLayout(set_master_popup_widget)
         self.set_master_popup_layout.setSpacing(10)
         self.set_master_popup_layout.setObjectName(u"set_master_popup_layout")
         self.set_master_popup_layout.setContentsMargins(15, 15, 15, 10)
         self.title_label = QLabel(set_master_popup_widget)
         self.title_label.setObjectName(u"title_label")
-        self.title_label.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.title_label.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
 
         self.set_master_popup_layout.addWidget(self.title_label)
 
@@ -38,19 +38,12 @@ class Ui_set_master_popup_widget(object):
         self.password_content_layout.setObjectName(u"password_content_layout")
         self.password_content_layout.setHorizontalSpacing(10)
         self.password_content_layout.setVerticalSpacing(20)
-        self.password_content_layout.setContentsMargins(15, -1, 30, 0)
+        self.password_content_layout.setContentsMargins(15, -1, 30, 15)
         self.repeat_password_label = QLabel(set_master_popup_widget)
         self.repeat_password_label.setObjectName(u"repeat_password_label")
         self.repeat_password_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.password_content_layout.addWidget(self.repeat_password_label, 1, 0, 1, 1)
-
-        self.repeat_password_line_edit = QLineEdit(set_master_popup_widget)
-        self.repeat_password_line_edit.setObjectName(u"repeat_password_line_edit")
-        self.repeat_password_line_edit.setMinimumSize(QSize(0, 25))
-        self.repeat_password_line_edit.setMaximumSize(QSize(16777215, 25))
-
-        self.password_content_layout.addWidget(self.repeat_password_line_edit, 1, 1, 1, 1)
+        self.password_content_layout.addWidget(self.repeat_password_label, 2, 0, 1, 1)
 
         self.password_line_edit = QLineEdit(set_master_popup_widget)
         self.password_line_edit.setObjectName(u"password_line_edit")
@@ -58,13 +51,35 @@ class Ui_set_master_popup_widget(object):
         self.password_line_edit.setMaximumSize(QSize(16777215, 25))
         self.password_line_edit.setEchoMode(QLineEdit.Password)
 
-        self.password_content_layout.addWidget(self.password_line_edit, 0, 1, 1, 1)
+        self.password_content_layout.addWidget(self.password_line_edit, 1, 1, 1, 1)
 
         self.password_label = QLabel(set_master_popup_widget)
         self.password_label.setObjectName(u"password_label")
         self.password_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.password_content_layout.addWidget(self.password_label, 0, 0, 1, 1)
+        self.password_content_layout.addWidget(self.password_label, 1, 0, 1, 1)
+
+        self.repeat_password_line_edit = QLineEdit(set_master_popup_widget)
+        self.repeat_password_line_edit.setObjectName(u"repeat_password_line_edit")
+        self.repeat_password_line_edit.setMinimumSize(QSize(0, 25))
+        self.repeat_password_line_edit.setMaximumSize(QSize(16777215, 25))
+        self.repeat_password_line_edit.setEchoMode(QLineEdit.Password)
+
+        self.password_content_layout.addWidget(self.repeat_password_line_edit, 2, 1, 1, 1)
+
+        self.current_password_label = QLabel(set_master_popup_widget)
+        self.current_password_label.setObjectName(u"current_password_label")
+        self.current_password_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.password_content_layout.addWidget(self.current_password_label, 0, 0, 1, 1)
+
+        self.current_password_line_edit = QLineEdit(set_master_popup_widget)
+        self.current_password_line_edit.setObjectName(u"current_password_line_edit")
+        self.current_password_line_edit.setMinimumSize(QSize(0, 25))
+        self.current_password_line_edit.setMaximumSize(QSize(16777215, 25))
+        self.current_password_line_edit.setEchoMode(QLineEdit.Password)
+
+        self.password_content_layout.addWidget(self.current_password_line_edit, 0, 1, 1, 1)
 
         self.show_button = QPushButton(set_master_popup_widget)
         self.show_button.setObjectName(u"show_button")
@@ -119,6 +134,7 @@ class Ui_set_master_popup_widget(object):
         self.title_label.setText(QCoreApplication.translate("set_master_popup_widget", u"\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u043c\u0430\u0441\u0442\u0435\u0440 \u043f\u0430\u0440\u043e\u043b\u044c", None))
         self.repeat_password_label.setText(QCoreApplication.translate("set_master_popup_widget", u"\u041f\u043e\u0432\u0442\u043e\u0440\u0438\u0442\u0435 \u043f\u0430\u0440\u043e\u043b\u044c:", None))
         self.password_label.setText(QCoreApplication.translate("set_master_popup_widget", u"\u041f\u0430\u0440\u043e\u043b\u044c:", None))
+        self.current_password_label.setText(QCoreApplication.translate("set_master_popup_widget", u"\u0422\u0435\u043a\u0443\u0449\u0438\u0439 \u043f\u0430\u0440\u043e\u043b\u044c:", None))
         self.show_button.setText("")
         self.error_label.setText(QCoreApplication.translate("set_master_popup_widget", u"<error>", None))
         self.set_button.setText(QCoreApplication.translate("set_master_popup_widget", u"\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c", None))

@@ -19,6 +19,7 @@ from core.ui.object.csv_import_popup import CsvImportPopup
 from core.ui.object.csv_export_popup import CsvExportPopup
 from core.ui.object.set_master_popup import SetMasterPopup
 from core.ui.object.remove_master_popup import RemoveMasterPopup
+from core.ui.object.change_master_popup import ChangeMasterPopup
 
 
 class MainWindow(FramelessMainWindow):
@@ -46,13 +47,17 @@ class MainWindow(FramelessMainWindow):
         self._csv_export_popup = CsvExportPopup(self)
         self._csv_export_popup.close()
 
-        self._set_master_popup = SetMasterPopup(self)
+        self._change_master_popup = ChangeMasterPopup(self)
+        self._change_master_popup.close()
+
+        self._set_master_popup = SetMasterPopup(self._change_master_popup, self)
         self._set_master_popup.close()
 
-        self._remove_master_popup = RemoveMasterPopup(self)
+        self._remove_master_popup = RemoveMasterPopup(self._change_master_popup, self)
         self._remove_master_popup.close()
 
         self._extension_service = ExtensionService()
+        self._extension_thread = QThread(self)
         self.start_extension_service()
 
         self._tray = QSystemTrayIcon(self)
@@ -77,18 +82,22 @@ class MainWindow(FramelessMainWindow):
         QTimer.singleShot(5000, self.get_extension_status)
 
     def start_extension_service(self) -> None:
-        thread = QThread(self)
-        self._extension_service.moveToThread(thread)
+        self._extension_thread = QThread(self)
+        self._extension_service.moveToThread(self._extension_thread)
 
-        thread.started.connect(self._extension_service.start_service)
-        self._extension_service.server_stoped.connect(thread.quit)
-        thread.finished.connect(self._extension_service.stop_service)
+        self._extension_thread.started.connect(self._extension_service.start_service)
+        self._extension_service.server_stoped.connect(self._extension_thread.quit)
+        self._extension_thread.finished.connect(self._extension_service.stop_service)
 
-        thread.start()
+        self._extension_thread.start()
 
     def stop_extension_service(self) -> None:
-        self._extension_service.thread().terminate()
-        self._extension_service.thread().wait()
+        if self._extension_thread.isRunning():
+            self._extension_thread.quit()
+            if not self._extension_thread.wait(1000):
+                self._extension_thread.terminate()
+                self._extension_thread.wait()
+        self._extension_thread.deleteLater()
 
     def setup_tray(self) -> None:
         self._tray.setVisible(True)

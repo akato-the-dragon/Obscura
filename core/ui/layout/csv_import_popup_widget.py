@@ -34,7 +34,7 @@ class Ui_csv_import_popup_widget(object):
         self.centered_layout.setContentsMargins(15, 15, 15, 15)
         self.title_label = QLabel(csv_import_popup_widget)
         self.title_label.setObjectName(u"title_label")
-        self.title_label.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.title_label.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
 
         self.centered_layout.addWidget(self.title_label)
 
