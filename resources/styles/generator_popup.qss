@@ -6,6 +6,7 @@
 QLabel {
     font-family: "Roboto";
     font-size: 12pt;
+    color: #fefffa;
 }
 
 #title_label {
@@ -29,6 +30,7 @@ QLineEdit:focus {
 QPushButton {
     font-family: "Roboto";
     font-size: 12pt;
+    color: #fefffa;
     background-color: #32476e;
     border: none;
     border-radius: 5px;

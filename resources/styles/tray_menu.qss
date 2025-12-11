@@ -1,0 +1,27 @@
+QMenu {
+	padding: 0px;
+	background-color: #1b263b;
+	color: #fefffa;
+	font-family: "Roboto";
+	font-size: 12pt;
+}
+QMenu::item {
+	padding: 5px 5px 5px 5px;
+	font-family: "Roboto";
+	font-size: 12pt;
+}
+QMenu::item:selected {	
+	background-color: #32476e;
+}
+QMenu::item:disabled {	
+	color: #adb5bd;
+}
+QMenu::right-arrow {
+	width: 16px;
+	height: 16px;
+	image: url(resources/images/icons/arrow_right.svg);
+}
+QMenu::separator {
+	height: 1px;
+	background-color: #0f1621;
+}

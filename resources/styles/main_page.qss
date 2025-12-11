@@ -46,6 +46,7 @@ QTableWidget {
 QTableWidget::item {
     font-family: "Roboto";
     font-size: 14px;
+    color: #fefffa;
 }
 QTableWidget::item:selected {
     background-color: rgba(255, 255, 255, 64);
@@ -53,6 +54,7 @@ QTableWidget::item:selected {
 
 QHeaderView {
     background-color: transparent;
+    color: #fefffa;
 }
 QHeaderView::section {
     background-color: transparent;
