@@ -1,16 +1,13 @@
-# Import modules
 from typing import Optional
+from PySide6.QtGui import QPainter, QColor
 from PySide6.QtWidgets import QWidget, QPushButton
-from PySide6.QtCore import (Qt, QRect, QEvent, Property, QVariantAnimation,
-                            QEasingCurve, Signal, Slot, QSequentialAnimationGroup)
-from PySide6.QtGui import QPainterPath, QPainter, QBrush, QPen, QColor, QFont, QIcon
+from PySide6.QtCore import Qt, QRect, QEvent, Property, QVariantAnimation, QEasingCurve
 
 
 class FadingButton(QPushButton):
     def __init__(self, parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
 
-        # Properties
         self._background_color = QColor(0, 0, 0, 0)
         self._color = QColor(255, 255, 255)
         self._radius = 0
@@ -24,11 +21,9 @@ class FadingButton(QPushButton):
         self._hover_animation_duration = 100
         self._click_animation_duration = 100
 
-        # Init animation
         self.__init_animation()
     
     def __init_animation(self) -> None:
-        # Hover animation
         self._hover_animation = QVariantAnimation(self)
         self._hover_animation.setStartValue(self._hover_animation_start_value)
         self._hover_animation.setEndValue(self._hover_animation_end_value)
@@ -36,7 +31,6 @@ class FadingButton(QPushButton):
         self._hover_animation.setDuration(self._hover_animation_duration)
         self._hover_animation.valueChanged.connect(self.update)
 
-        # Click animation
         self._click_animation = QVariantAnimation(self)
         self._click_animation.setStartValue(self._click_animation_start_value)
         self._click_animation.setEndValue(self._click_animation_end_value)
@@ -69,18 +63,15 @@ class FadingButton(QPushButton):
         self._click_animation.start()
 
     def paintEvent(self, event: QEvent) -> None:
-        # Asign painter
         painter = QPainter(self)
         painter.setRenderHint(QPainter.RenderHint.Antialiasing)
 
-        # Draw background
         background_rect = QRect(0, 0, self.width(), self.height())
 
         painter.setBrush(self._background_color)
         painter.setPen(Qt.GlobalColor.transparent)
         painter.drawRoundedRect(background_rect, self._radius, self._radius)
 
-        # Draw filler
         filler_rect = QRect(0, 0, self.width(), self.height())
 
         color = self._color
@@ -90,10 +81,8 @@ class FadingButton(QPushButton):
         painter.setPen(Qt.GlobalColor.transparent)
         painter.drawRoundedRect(filler_rect, self._radius, self._radius)
 
-        # End painter
         painter.end()
 
-        # Draw button things
         super().paintEvent(event)
     
     @Property(int)

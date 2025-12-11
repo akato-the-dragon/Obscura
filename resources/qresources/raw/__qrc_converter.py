@@ -23,5 +23,3 @@ if __name__ == "__main__":
     py_directory = join(qrc_directory, "../")
 
     convert(qrc_directory, py_directory)
-
-    input("Press enter for closing...")

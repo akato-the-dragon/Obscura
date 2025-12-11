@@ -1,5 +1,5 @@
 #main_widget {
-    border-image: url(resources/images/background.png) 0 0 0 0 stretch stretch;
+    border-image: url(:/images/background.png) 0 0 0 0 stretch stretch;
 }
 
 QMenuBar {
@@ -39,7 +39,7 @@ QMenu::item:disabled {
 QMenu::right-arrow {
 	width: 16px;
 	height: 16px;
-	image: url(resources/images/icons/arrow_right.svg);
+	image: url(:/images/icons/arrow_right.svg);
 }
 QMenu::separator {
 	height: 1px;

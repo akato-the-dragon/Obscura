@@ -64,18 +64,7 @@
      <addaction name="service_status_action"/>
      <addaction name="extension_status_action"/>
     </widget>
-    <widget class="QMenu" name="master_menu">
-     <property name="title">
-      <string>Мастер пароль</string>
-     </property>
-     <addaction name="set_master_action"/>
-     <addaction name="remove_master_action"/>
-     <addaction name="separator"/>
-     <addaction name="master_status_action"/>
-    </widget>
     <addaction name="service_menu"/>
-    <addaction name="separator"/>
-    <addaction name="master_menu"/>
     <addaction name="separator"/>
     <addaction name="exit_action"/>
    </widget>

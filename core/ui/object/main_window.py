@@ -1,3 +1,4 @@
+from core.meta import NAME
 from typing import Optional
 from core.meta import get_full_version
 from PySide6.QtGui import QAction, QIcon
@@ -17,9 +18,6 @@ from core.ui.object.generator_popup import GeneratorPopup
 from core.ui.object.generator_short_popup import GeneratorShortPopup
 from core.ui.object.csv_import_popup import CsvImportPopup
 from core.ui.object.csv_export_popup import CsvExportPopup
-from core.ui.object.set_master_popup import SetMasterPopup
-from core.ui.object.remove_master_popup import RemoveMasterPopup
-from core.ui.object.change_master_popup import ChangeMasterPopup
 
 
 class MainWindow(FramelessMainWindow):
@@ -46,15 +44,6 @@ class MainWindow(FramelessMainWindow):
 
         self._csv_export_popup = CsvExportPopup(self)
         self._csv_export_popup.close()
-
-        self._change_master_popup = ChangeMasterPopup(self)
-        self._change_master_popup.close()
-
-        self._set_master_popup = SetMasterPopup(self._change_master_popup, self)
-        self._set_master_popup.close()
-
-        self._remove_master_popup = RemoveMasterPopup(self._change_master_popup, self)
-        self._remove_master_popup.close()
 
         self._extension_service = ExtensionService()
         self._extension_thread = QThread(self)
@@ -93,22 +82,30 @@ class MainWindow(FramelessMainWindow):
 
     def stop_extension_service(self) -> None:
         if self._extension_thread.isRunning():
-            self._extension_thread.quit()
-            if not self._extension_thread.wait(1000):
-                self._extension_thread.terminate()
-                self._extension_thread.wait()
+            self._extension_thread.terminate()
+            self._extension_thread.wait()
         self._extension_thread.deleteLater()
+
+    def hide(self) -> None:
+        self.showMinimized()
+        QTimer.singleShot(500, super().hide)
+    
+    def show(self):
+        super().show()
+        self.showNormal()
 
     def setup_tray(self) -> None:
         self._tray.setVisible(True)
-        self._tray.setIcon(QIcon("resources/images/icons/tray.png"))
+        self._tray.setIcon(QIcon(":/images/icons/icon.png"))
 
         self._tray_menu = QMenu()
-        self._open_app_action = QAction("Открыть")
+        self._open_app_action = QAction("Открыть окно")
         self._open_app_action.triggered.connect(self.show)
         self._tray_menu.addAction(self._open_app_action)
 
         self._close_app_action = QAction("Закрыть")
+        self._close_app_action.triggered.connect(self._tray.hide)
+        self._close_app_action.triggered.connect(self.stop_extension_service)
         self._close_app_action.triggered.connect(QApplication.quit)
         self._tray_menu.addAction(self._close_app_action)
 
@@ -127,8 +124,6 @@ class MainWindow(FramelessMainWindow):
 
         self._ui.stacked_widget.addWidget(self._main_page)
 
-        self._ui.set_master_action.triggered.connect(self._set_master_popup.open)
-        self._ui.remove_master_action.triggered.connect(self._remove_master_popup.open)
         self._ui.exit_action.triggered.connect(self.window().close)
         self._ui.create_password.triggered.connect(self._generator_popup.open)
         self._ui.create_quick_password.triggered.connect(self._generator_short_popup.open)
@@ -141,10 +136,15 @@ class MainWindow(FramelessMainWindow):
 
         self.get_service_status()
         self.get_extension_status()
+
+        self.setWindowTitle(NAME)
     
     def style_ui(self) -> None:
-        load_stylesheet_from_file(self, "resources/styles/main_window.qss")
-        load_stylesheet_from_file(self._tray_menu, "resources/styles/tray_menu.qss")
+        load_stylesheet_from_file(self, ":/styles/main_window.qss")
+        load_stylesheet_from_file(self._tray_menu, ":/styles/tray_menu.qss")
+
+        window_icon = QIcon(":/images/icons/icon.png")
+        self.setWindowIcon(window_icon)
     
     @property
     def ui(self) -> Ui_main_window:

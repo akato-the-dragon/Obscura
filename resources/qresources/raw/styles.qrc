@@ -1,0 +1,13 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="">
+        <file>../../styles/add_password_popup.qss</file>
+        <file>../../styles/csv_export_popup.qss</file>
+        <file>../../styles/csv_import_popup.qss</file>
+        <file>../../styles/generator_popup.qss</file>
+        <file>../../styles/main_page.qss</file>
+        <file>../../styles/main_window.qss</file>
+        <file>../../styles/password_popup.qss</file>
+        <file>../../styles/title_bar.qss</file>
+        <file>../../styles/tray_menu.qss</file>
+    </qresource>
+</RCC>

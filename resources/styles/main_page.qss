@@ -68,12 +68,12 @@ QHeaderView::section {
 QHeaderView::down-arrow {
 	width: 24px;
 	height: 24px;
-	image: url("resources/images/icons/arrow_down.svg");
+	image: url(":/images/icons/arrow_down.svg");
 }
 QHeaderView::up-arrow {
 	width: 24px;
 	height: 24px;
-	image: url("resources/images/icons/arrow_up.svg");          
+	image: url(":/images/icons/arrow_up.svg");          
 }
 
 

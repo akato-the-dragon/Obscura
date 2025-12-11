@@ -1,4 +1,3 @@
-# Import modules
 from typing import Optional, Final
 from PySide6.QtWidgets import QWidget
 from PySide6.QtGui import QPainter, QPen, QBrush, QColor
@@ -15,14 +14,12 @@ class StatusWidget(QWidget):
 
         self._status = self.Status.OFFLINE
 
-        # Properties
         self._online_color = QColor(0, 255, 0)
         self._offline_color = QColor(255, 0, 0)
         self._radius = 5
 
         self._animation_diration = 500
 
-        # Init animation
         self.__init_animation()
     
     def __init_animation(self) -> None:
@@ -34,11 +31,9 @@ class StatusWidget(QWidget):
         self._animation.valueChanged.connect(self.update)
 
     def paintEvent(self, event: QEvent) -> None:
-        # Create qpainter
         painter = QPainter(self)
         painter.setRenderHint(QPainter.RenderHint.Antialiasing)
 
-        # Draw background
         current_color = self._animation.currentValue()
         background_rect = QRect(0, 0, self.width(), self.height())
 

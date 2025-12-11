@@ -60,15 +60,15 @@ class GeneratorPopup(CorePopup):
         self._ui.close_button.clicked.connect(self.cancel)
     
     def style_ui(self) -> None:
-        load_stylesheet_from_file(self, "resources/styles/generator_popup.qss")
+        load_stylesheet_from_file(self, ":/styles/generator_popup.qss")
 
         show_icon_size = QSize(16, 16)
-        show_icon = QIcon("resources/images/icons/show.svg")
+        show_icon = QIcon(":/images/icons/show.svg")
         self._ui.show_button.setIconSize(show_icon_size)
         self._ui.show_button.setIcon(show_icon)
 
         generate_icon_size = QSize(16, 16)
-        generate_icon = QIcon("resources/images/icons/retry.svg")
+        generate_icon = QIcon(":/images/icons/retry.svg")
         self._ui.generate_button.setIconSize(generate_icon_size)
         self._ui.generate_button.setIcon(generate_icon)
     

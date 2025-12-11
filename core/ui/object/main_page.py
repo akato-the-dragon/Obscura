@@ -115,20 +115,20 @@ class MainPage(QWidget):
         self.load_password_data()
     
     def style_ui(self) -> None:
-        load_stylesheet_from_file(self, "resources/styles/main_page.qss")
+        load_stylesheet_from_file(self, ":/styles/main_page.qss")
 
         search_icon_size = QSize(24, 24)
-        search_icon = QIcon("resources/images/icons/search.svg")
+        search_icon = QIcon(":/images/icons/search.svg")
         self._ui.search_button.setIconSize(search_icon_size)
         self._ui.search_button.setIcon(search_icon)
 
         delete_icon_size = QSize(32, 32)
-        delete_icon = QIcon("resources/images/icons/minimize.svg")
+        delete_icon = QIcon(":/images/icons/minimize.svg")
         self._ui.delete_button.setIconSize(delete_icon_size)
         self._ui.delete_button.setIcon(delete_icon)
 
         add_icon_size = QSize(32, 32)
-        add_icon = QIcon("resources/images/icons/add.svg")
+        add_icon = QIcon(":/images/icons/add.svg")
         self._ui.add_button.setIconSize(add_icon_size)
         self._ui.add_button.setIcon(add_icon)
     

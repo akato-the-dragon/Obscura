@@ -1,4 +1,3 @@
-# Import modules
 import os
 import base64
 from cryptography.hazmat.primitives import hashes
@@ -6,7 +5,6 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend
 
-# Encryption / decryption constants
 SALT_SIZE = 16
 NONCE_SIZE = 12
 KEY_LENGTH = 32

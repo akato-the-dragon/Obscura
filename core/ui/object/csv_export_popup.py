@@ -157,7 +157,7 @@ class CsvExportPopup(CorePopup):
         self._ui.cancel_button.clicked.connect(self.cancel)
     
     def style_ui(self) -> None:
-        load_stylesheet_from_file(self, "resources/styles/csv_export_popup.qss")
+        load_stylesheet_from_file(self, ":/styles/csv_export_popup.qss")
     
     @property
     def ui(self) -> Ui_csv_export_popup_widget:

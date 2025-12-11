@@ -89,7 +89,7 @@ class ExtensionService(QObject):
 
     def _run_server(self):
         try:
-            config = Config(app=self._app, host=self._host, port=self._port, loop="asyncio")
+            config = Config(app=self._app, host=self._host, port=self._port, loop="asyncio", log_config=None, access_log=False)
             self._server = Server(config=config)
             
             self._loop = asyncio.new_event_loop()

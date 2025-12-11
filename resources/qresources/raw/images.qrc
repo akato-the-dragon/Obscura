@@ -1,0 +1,19 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="">
+        <file>../../images/background.png</file>
+        <file>../../images/icons/icon.png</file>
+        <file>../../images/icons/add.svg</file>
+        <file>../../images/icons/arrow_down.svg</file>
+        <file>../../images/icons/arrow_left.svg</file>
+        <file>../../images/icons/arrow_right.svg</file>
+        <file>../../images/icons/arrow_up.svg</file>
+        <file>../../images/icons/checked_check_box.svg</file>
+        <file>../../images/icons/close.svg</file>
+        <file>../../images/icons/maximize.svg</file>
+        <file>../../images/icons/minimize.svg</file>
+        <file>../../images/icons/retry.svg</file>
+        <file>../../images/icons/search.svg</file>
+        <file>../../images/icons/show.svg</file>
+        <file>../../images/icons/unchecked_check_box.svg</file>
+    </qresource>
+</RCC>

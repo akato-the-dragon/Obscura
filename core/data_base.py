@@ -9,11 +9,7 @@ class PasswordDatabase(QObject):
 
     def __init__(self, parent: Optional[QObject] = None) -> None:
         super().__init__(parent)
-        self._connection = sqlite3.connect("data/passwords.db", autocommit=True, check_same_thread=False)
-        self._master_password = ""
-
-    def set_master_password(self, password: str) -> None:
-        self._master_password = password
+        self._connection = sqlite3.connect("passwords.db", autocommit=True, check_same_thread=False)
 
     def create_passwords_table(self) -> None:
         cursor = self._connection.cursor()
@@ -30,12 +26,11 @@ class PasswordDatabase(QObject):
         query = """SELECT id, site_url, login FROM password"""
         return cursor.execute(query).fetchall()
 
-    def get_password_item(self, id: int, master: str = "") -> tuple:
-        master = master if master != "" else self._master_password
+    def get_password_item(self, id: int) -> tuple:
         cursor = self._connection.cursor()
         query = """SELECT id, site_url, login, password FROM password WHERE id = ?"""
         password_item = cursor.execute(query, (id,)).fetchall()[0]
-        decrypted_password = decrypt(password_item[3], master)
+        decrypted_password = decrypt(password_item[3], "")
         return (password_item[0], password_item[1], password_item[2],
                 decrypted_password)
 
@@ -53,9 +48,8 @@ class PasswordDatabase(QObject):
         cursor.execute(query, (site_url, login, encrypted_password, id))
         self.database_changed.emit()
 
-    def add_password(self, site_url: str, login: str, password: str, master: str = "") -> None:
-        master = master if master != "" else self._master_password
-        encrypted_password = encrypt(password, master)
+    def add_password(self, site_url: str, login: str, password: str) -> None:
+        encrypted_password = encrypt(password, "")
         cursor = self._connection.cursor()
         query = """INSERT INTO password (site_url, login, password) VALUES(?, ?, ?)"""
         cursor.execute(query, (site_url, login, encrypted_password))

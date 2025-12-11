@@ -58,7 +58,7 @@ QComboBox::drop-down:hover {
     background-color: #5e82ab;
 }
 QComboBox::down-arrow {
-    image: url(resources/images/icons/arrow_down.svg);
+    image: url(:/images/icons/arrow_down.svg);
     width: 16px;
     height: 16px;
 }

@@ -226,7 +226,7 @@ class CsvImportPopup(CorePopup):
         self._ui.password_combo_box.currentIndexChanged.connect(lambda: self.update_mapping("password"))
     
     def style_ui(self) -> None:
-        load_stylesheet_from_file(self, "resources/styles/csv_import_popup.qss")
+        load_stylesheet_from_file(self, ":/styles/csv_import_popup.qss")
     
     @property
     def ui(self) -> Ui_csv_import_popup_widget:

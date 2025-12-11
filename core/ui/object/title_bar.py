@@ -40,20 +40,20 @@ class TitleBar(TitleBarBase):
         self.__insert_version()
 
     def style_ui(self) -> None:
-        load_stylesheet_from_file(self, "resources/styles/title_bar.qss")
+        load_stylesheet_from_file(self, ":/styles/title_bar.qss")
 
         close_icon_size = QSize(24, 24)
-        close_icon = QIcon("resources/images/icons/close.svg")
+        close_icon = QIcon(":/images/icons/close.svg")
         self._ui.close_button.setIconSize(close_icon_size)
         self._ui.close_button.setIcon(close_icon)
 
         maximize_icon_size = QSize(24, 24)
-        maximize_icon = QIcon("resources/images/icons/maximize.svg")
+        maximize_icon = QIcon(":/images/icons/maximize.svg")
         self._ui.maximize_button.setIconSize(maximize_icon_size)
         self._ui.maximize_button.setIcon(maximize_icon)
 
         minimize_icon_size = QSize(24, 24)
-        minimize_icon = QIcon("resources/images/icons/minimize.svg")
+        minimize_icon = QIcon(":/images/icons/minimize.svg")
         self._ui.minimize_button.setIconSize(minimize_icon_size)
         self._ui.minimize_button.setIcon(minimize_icon)
 

@@ -1,4 +1,3 @@
-# Import modules
 from typing import Any
 from PySide6.QtWidgets import QLabel
 

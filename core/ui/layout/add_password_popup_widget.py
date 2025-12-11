@@ -19,6 +19,8 @@ from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
     QLineEdit, QPushButton, QSizePolicy, QVBoxLayout,
     QWidget)
 
+from core.ui.element.label import ErrorLabel
+
 class Ui_add_password_popup_widget(object):
     def setupUi(self, add_password_popup_widget):
         if not add_password_popup_widget.objectName():
@@ -95,7 +97,7 @@ class Ui_add_password_popup_widget(object):
 
         self.add_password_popup_layout.addLayout(self.password_content_layout)
 
-        self.error_label = QLabel(add_password_popup_widget)
+        self.error_label = ErrorLabel(add_password_popup_widget)
         self.error_label.setObjectName(u"error_label")
 
         self.add_password_popup_layout.addWidget(self.error_label)

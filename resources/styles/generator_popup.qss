@@ -66,13 +66,13 @@ QSpinBox::up-button:hover, QSpinBox::down-button:hover {
     background-color: #5e82ab;
 }
 QSpinBox::up-arrow {
-    image: url(resources/images/icons/arrow_up.svg);
+    image: url(:/images/icons/arrow_up.svg);
     width: 16px;
     height: 16px;
 }
 
 QSpinBox::down-arrow {
-    image: url(resources/images/icons/arrow_down.svg);
+    image: url(:/images/icons/arrow_down.svg);
     width: 16px;
     height: 16px;
 }
@@ -83,8 +83,8 @@ QCheckBox {
 QCheckBox::indicator {
     width: 24px;
     height: 24px;
-    image: url(resources/images/icons/unchecked_check_box.svg);
+    image: url(:/images/icons/unchecked_check_box.svg);
 }
 QCheckBox::indicator:checked {
-    image: url(resources/images/icons/checked_check_box.svg);
+    image: url(:/images/icons/checked_check_box.svg);
 }

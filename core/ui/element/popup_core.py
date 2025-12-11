@@ -1,6 +1,3 @@
-""""""
-
-# Import modules
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QColor
 from PySide6.QtWidgets import QGraphicsDropShadowEffect, QDialog, QWidget, QMainWindow
@@ -22,13 +19,11 @@ class CorePopup(QDialog):
     def __init__(self, parent: QMainWindow):
         super().__init__(parent)
 
-        # Set popup options
         self.setWindowModality(Qt.WindowModality.ApplicationModal)
         self.setWindowFlags(Qt.WindowType.Popup)
         self.setWindowFlags(Qt.WindowType.CustomizeWindowHint | Qt.WindowType.FramelessWindowHint)
         self.setWindowFlag(Qt.WindowType.WindowTitleHint, False)
 
-        # Set popup shadow
         shadow = QGraphicsDropShadowEffect()
         shadow.setBlurRadius(100)
         shadow.setColor(QColor(0,0,0,200))
