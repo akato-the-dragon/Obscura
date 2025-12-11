@@ -66,6 +66,11 @@ class CsvExportPopup(CorePopup):
         self.setup_ui()
         self.style_ui()
 
+    def open(self):
+        self._ui.csv_file_line_edit.clear()
+        self._ui.progress_bar.setValue(0)
+        super().open()
+
     def cancel(self) -> None:
         if self._export_worker:
             self._export_worker.stop()
@@ -93,9 +98,6 @@ class CsvExportPopup(CorePopup):
         csv_data = self.get_csv_data()
         
         self.set_ui_enabled(False)
-        
-        self._ui.progress_bar.setRange(0, 100)
-        self._ui.progress_bar.setValue(0)
 
         self._export_thread = QThread()
         self._export_worker = CsvExportWorker(csv_data, self._current_file_path, headers)

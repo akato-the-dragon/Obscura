@@ -3,7 +3,7 @@
 
 # Import modules
 from typing import Final
-from core.utility.run_counter import counter_value
+from core.utility.counter import counter_value
 
 # App meta values
 COMPANY: Final[str] = "AkaDevProductions"

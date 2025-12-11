@@ -26,12 +26,12 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 async function autoFillCredentials() {
     if (!settings.autoFillPasswords) return;
     
-    const domain = window.location.hostname;
+    const site_url = window.location.origin;
     
     try {
         const response = await chrome.runtime.sendMessage({
             action: 'getCredentials',
-            domain: domain
+            site_url: site_url
         });
         
         if (response.success && response.credentials) {
@@ -98,19 +98,19 @@ document.addEventListener('submit', async function(event) {
     });
 
     if (hasPassword && login && password) {
-        const domain = window.location.hostname;
+        const site_url = window.location.origin;
         
         try {
             await chrome.runtime.sendMessage({
                 action: 'saveCredentials',
                 data: {
-                    domain: domain,
+                    site_url: site_url,
                     login: login,
                     password: password
                 }
             });
             
-            console.log('Credentials saved for:', domain);
+            console.log('Credentials saved for:', site_url);
         } catch (error) {
             console.log('Failed to save credentials:', error);
         }
@@ -141,12 +141,12 @@ document.addEventListener('click', function(event) {
                 });
                 
                 if (hasPassword && login && password) {
-                    const domain = window.location.hostname;
+                    const site_url = window.location.origin;
                     
                     chrome.runtime.sendMessage({
                         action: 'saveCredentials',
                         data: {
-                            domain: domain,
+                            site_url: site_url,
                             login: login,
                             password: password
                         }

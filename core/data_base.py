@@ -1,6 +1,6 @@
 from typing import Optional
 from PySide6.QtCore import QObject, Signal
-from core.utility.password_encrypt import encrypt, decrypt
+from core.password_encrypt import encrypt, decrypt
 import sqlite3
 
 
@@ -9,7 +9,7 @@ class PasswordDatabase(QObject):
 
     def __init__(self, parent: Optional[QObject] = None) -> None:
         super().__init__(parent)
-        self._connection = sqlite3.connect("passwords.db", autocommit=True, check_same_thread=False)
+        self._connection = sqlite3.connect("data/passwords.db", autocommit=True, check_same_thread=False)
 
     def create_passwords_table(self) -> None:
         cursor = self._connection.cursor()

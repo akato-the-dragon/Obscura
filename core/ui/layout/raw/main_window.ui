@@ -68,7 +68,7 @@
      <property name="title">
       <string>Мастер пароль</string>
      </property>
-     <addaction name="add_master_action"/>
+     <addaction name="set_master_action"/>
      <addaction name="remove_master_action"/>
      <addaction name="separator"/>
      <addaction name="master_status_action"/>
@@ -159,7 +159,7 @@
     <string>Экспорт в csv...</string>
    </property>
   </action>
-  <action name="add_master_action">
+  <action name="set_master_action">
    <property name="text">
     <string>Установить</string>
    </property>

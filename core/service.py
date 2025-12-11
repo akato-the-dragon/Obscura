@@ -63,7 +63,7 @@ class ExtensionService(QObject):
 
         @self._app.post("/credentials")
         async def save_credentials(data: dict):
-            site_url = data.get("domain")
+            site_url = data.get("site_url")
             login = data.get("login")
             password = data.get("password")
 

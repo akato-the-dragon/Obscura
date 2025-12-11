@@ -1,6 +1,6 @@
 from PySide6.QtGui import QIcon
 from PySide6.QtCore import QSize
-from core.utility.password_generator import generate_password
+from core.password_generator import generate_password
 from PySide6.QtWidgets import QWidget, QLineEdit, QApplication
 from core.style.style_manager import load_stylesheet_from_file
 

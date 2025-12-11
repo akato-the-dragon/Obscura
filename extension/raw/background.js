@@ -40,7 +40,7 @@ setInterval(checkServiceConnection, 15000);
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     switch (message.action) {
         case 'getCredentials':
-            handleGetCredentials(message.domain, sendResponse);
+            handleGetCredentials(message.site_url, sendResponse);
             return true;
             
         case 'saveCredentials':
@@ -53,9 +53,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     }
 });
 
-async function handleGetCredentials(domain, sendResponse) {
+async function handleGetCredentials(site_url, sendResponse) {
     try {
-        const response = await fetch(`${SERVICE_URL}/credentials/${encodeURIComponent(domain)}`);
+        const response = await fetch(`${SERVICE_URL}/credentials/${encodeURIComponent(site_url)}`);
         
         if (response.ok) {
             const credentials = await response.json();

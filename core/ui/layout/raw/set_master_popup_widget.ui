@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>add_master_popup_widget</class>
- <widget class="QWidget" name="add_master_popup_widget">
+ <class>set_master_popup_widget</class>
+ <widget class="QWidget" name="set_master_popup_widget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,7 +10,7 @@
     <height>200</height>
    </rect>
   </property>
-  <layout class="QVBoxLayout" name="add_master_popup_layout">
+  <layout class="QVBoxLayout" name="set_master_popup_layout">
    <property name="spacing">
     <number>10</number>
    </property>

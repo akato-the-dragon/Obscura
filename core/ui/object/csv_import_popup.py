@@ -101,6 +101,11 @@ class CsvImportPopup(CorePopup):
         self.style_ui()
 
     def open(self) -> None:
+        self._ui.csv_file_line_edit.clear()
+        self._ui.progress_bar.setValue(0)
+        self._ui.site_url_combo_box.clear()
+        self._ui.login_combo_box.clear()
+        self._ui.password_combo_box.clear()
         super().open()
 
     def cancel(self) -> None:
@@ -123,9 +128,6 @@ class CsvImportPopup(CorePopup):
                 return
         
         self.set_ui_enabled(False)
-        
-        self._ui.progress_bar.setRange(0, 100)
-        self._ui.progress_bar.setValue(0)
 
         self._import_thread = QThread()
         self._import_worker = CSVImportWorker(self._current_file_path, self._mapped_columns)

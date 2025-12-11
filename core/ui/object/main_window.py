@@ -17,6 +17,8 @@ from core.ui.object.generator_popup import GeneratorPopup
 from core.ui.object.generator_short_popup import GeneratorShortPopup
 from core.ui.object.csv_import_popup import CsvImportPopup
 from core.ui.object.csv_export_popup import CsvExportPopup
+from core.ui.object.set_master_popup import SetMasterPopup
+from core.ui.object.remove_master_popup import RemoveMasterPopup
 
 
 class MainWindow(FramelessMainWindow):
@@ -43,6 +45,12 @@ class MainWindow(FramelessMainWindow):
 
         self._csv_export_popup = CsvExportPopup(self)
         self._csv_export_popup.close()
+
+        self._set_master_popup = SetMasterPopup(self)
+        self._set_master_popup.close()
+
+        self._remove_master_popup = RemoveMasterPopup(self)
+        self._remove_master_popup.close()
 
         self._extension_service = ExtensionService()
         self.start_extension_service()
@@ -110,6 +118,8 @@ class MainWindow(FramelessMainWindow):
 
         self._ui.stacked_widget.addWidget(self._main_page)
 
+        self._ui.set_master_action.triggered.connect(self._set_master_popup.open)
+        self._ui.remove_master_action.triggered.connect(self._remove_master_popup.open)
         self._ui.exit_action.triggered.connect(self.window().close)
         self._ui.create_password.triggered.connect(self._generator_popup.open)
         self._ui.create_quick_password.triggered.connect(self._generator_short_popup.open)

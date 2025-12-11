@@ -2,7 +2,7 @@
 from core.meta import DEVELOPMENT_BUILD
 from PySide6.QtWidgets import QApplication
 from core.data_base import password_database
-from core.utility.run_counter import increment_counter
+from core.utility.counter import increment_counter
 from core.style.font_loader import load_fonts_from_directory
 import sys
 

@@ -104,7 +104,7 @@ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
 
 QMessageBox QPushButton {
     background-color: palette(Button);
-    color: palette(Text);
+    color: #fefffa;
     border: 1px solid palette(Mid);
     padding: 5px;
 }
