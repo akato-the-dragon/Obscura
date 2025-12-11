@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'csv_import_popup_widget.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.9.1
+## Created by: Qt User Interface Compiler version 6.10.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -152,7 +152,7 @@ class Ui_csv_import_popup_widget(object):
 
         self.progress_bar = QProgressBar(csv_import_popup_widget)
         self.progress_bar.setObjectName(u"progress_bar")
-        self.progress_bar.setMaximumSize(QSize(16777215, 8))
+        self.progress_bar.setMaximumSize(QSize(16777215, 16))
         self.progress_bar.setTextVisible(False)
 
         self.csv_import_popup_layout.addWidget(self.progress_bar)

@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'main_window.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.9.1
+## Created by: Qt User Interface Compiler version 6.10.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -128,7 +128,7 @@ class Ui_main_window(object):
         self.action_service_status.setText(QCoreApplication.translate("main_window", u"\u0421\u0435\u0440\u0432\u0438\u0441: <service_status>", None))
         self.github_page_action.setText(QCoreApplication.translate("main_window", u"\u0421\u0442\u0440\u0430\u043d\u0438\u0446\u0430 github", None))
         self.download_extension_action.setText(QCoreApplication.translate("main_window", u"\u0421\u043a\u0430\u0447\u0430\u0442\u044c \u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043d\u0438\u0435", None))
-        self.export_csv_action.setText(QCoreApplication.translate("main_window", u"\u042d\u043a\u0441\u043f\u043e\u0440\u0442 \u0438\u0437 csv...", None))
+        self.export_csv_action.setText(QCoreApplication.translate("main_window", u"\u042d\u043a\u0441\u043f\u043e\u0440\u0442 \u0432 csv...", None))
         self.add_master_action.setText(QCoreApplication.translate("main_window", u"\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c", None))
         self.remove_master_action.setText(QCoreApplication.translate("main_window", u"\u0421\u043d\u044f\u0442\u044c", None))
         self.master_status_action.setText(QCoreApplication.translate("main_window", u"\u0421\u0442\u0430\u0442\u0443\u0441: <master_status>", None))

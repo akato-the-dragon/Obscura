@@ -21,7 +21,7 @@ class CSVImportWorker(QObject):
     
     def run(self):
         try:
-            with open(self.file_path, 'r', encoding='utf-8') as file:
+            with open(self.file_path, "r", encoding="utf-8") as file:
                 reader = csv.reader(file)
                 headers = next(reader, [])
                 
@@ -32,8 +32,7 @@ class CSVImportWorker(QObject):
                 total_lines = sum(1 for _ in file)
                 file.seek(0)
                 next(reader)
-                
-                counter = 0
+
                 processed = 0
                 
                 for row in reader:
@@ -56,17 +55,24 @@ class CSVImportWorker(QObject):
                     login = row_dict.get("login")
                     password = row_dict.get("password")
                     
-                    # Добавление в базу данных
-                    password_database.add_password(site_url, login, password)
-                    counter += 1
-                    processed += 1
+                    password_list = password_database.get_password_list()
+
+                    for password_item in password_list:
+                        if (password_item[1] == site_url and 
+                            password_item[2] == login):
+                            
+                            password_database.update_password(password_item[0], site_url, login, password)
+                            break
+                    else:
+                        password_database.add_password(site_url, login, password)
+                        processed += 1
                     
                     # Отправка прогресса
                     progress_percent = int((processed / total_lines) * 100) if total_lines > 0 else 0
                     self.progress.emit(progress_percent)
             
             if self._is_running:
-                self.finished.emit(counter)
+                self.finished.emit(processed)
                 
         except Exception as e:
             if self._is_running:
@@ -87,8 +93,7 @@ class CsvImportPopup(CorePopup):
         self._current_file_path = ""
         self._column_headers = []
         self._mapped_columns = {}
-        
-        # Для управления потоками
+
         self._import_thread = None
         self._import_worker = None
 
@@ -179,7 +184,7 @@ class CsvImportPopup(CorePopup):
 
     def load_csv_headers(self, file_path: str) -> None:
         try:
-            with open(file_path, 'r', encoding='utf-8') as file:
+            with open(file_path, "r", encoding="utf-8") as file:
                 reader = csv.reader(file)
                 headers = next(reader, [])
                 

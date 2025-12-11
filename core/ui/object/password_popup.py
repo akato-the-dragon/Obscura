@@ -53,6 +53,8 @@ class PasswordPopup(CorePopup):
             self._ui.password_line_edit.setEchoMode(QLineEdit.EchoMode.Password)
 
     def setup_ui(self) -> None:
+        self._ui.error_label.hide()
+
         self._ui.update_button.clicked.connect(self.update_password_data)
         self._ui.cancel_button.clicked.connect(self.cancel)
         self._ui.show_button.clicked.connect(self.show_hide_password)

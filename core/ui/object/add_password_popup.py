@@ -42,6 +42,8 @@ class AddPasswordPopup(CorePopup):
             self._ui.password_line_edit.setEchoMode(QLineEdit.EchoMode.Password)
 
     def setup_ui(self) -> None:
+        self._ui.error_label.hide()
+
         self._ui.add_button.clicked.connect(self.add_password_data)
         self._ui.cancel_button.clicked.connect(self.cancel)
         self._ui.show_button.clicked.connect(self.show_hide_password)

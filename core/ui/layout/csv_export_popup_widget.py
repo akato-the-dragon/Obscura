@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'csv_export_popup_widget.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.9.1
+## Created by: Qt User Interface Compiler version 6.10.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -96,7 +96,7 @@ class Ui_csv_export_popup_widget(object):
 
         self.progress_bar = QProgressBar(csv_export_popup_widget)
         self.progress_bar.setObjectName(u"progress_bar")
-        self.progress_bar.setMaximumSize(QSize(16777215, 8))
+        self.progress_bar.setMaximumSize(QSize(16777215, 16))
         self.progress_bar.setTextVisible(False)
 
         self.csv_export_popup_layout.addWidget(self.progress_bar)
@@ -108,10 +108,10 @@ class Ui_csv_export_popup_widget(object):
     # setupUi
 
     def retranslateUi(self, csv_export_popup_widget):
-        self.title_label.setText(QCoreApplication.translate("csv_export_popup_widget", u"\u042d\u043a\u0441\u043f\u043e\u0440\u0442 \u0438\u0437 csv \u0444\u0430\u0439\u043b\u0430", None))
-        self.csv_file_label.setText(QCoreApplication.translate("csv_export_popup_widget", u"\u041f\u0443\u0442\u044c \u043a \u0444\u0430\u0439\u043b\u0443:", None))
+        self.title_label.setText(QCoreApplication.translate("csv_export_popup_widget", u"\u042d\u043a\u0441\u043f\u043e\u0440\u0442 \u0432 csv \u0444\u0430\u0439\u043b", None))
+        self.csv_file_label.setText(QCoreApplication.translate("csv_export_popup_widget", u"\u041f\u0443\u0442\u044c \u0444\u0430\u0439\u043b\u0430:", None))
         self.csv_file_browser_button.setText(QCoreApplication.translate("csv_export_popup_widget", u"...", None))
-        self.export_button.setText(QCoreApplication.translate("csv_export_popup_widget", u"\u0418\u043c\u043f\u043e\u0440\u0442", None))
+        self.export_button.setText(QCoreApplication.translate("csv_export_popup_widget", u"\u042d\u043a\u0441\u043f\u043e\u0440\u0442", None))
         self.cancel_button.setText(QCoreApplication.translate("csv_export_popup_widget", u"\u041e\u0442\u043c\u0435\u043d\u0430", None))
         pass
     # retranslateUi

@@ -1,4 +1,4 @@
-#csv_import_popup_widget {
+#csv_export_popup_widget {
     background-color: #1b263b;
     border-radius: 10px;
 }
@@ -33,48 +33,8 @@ QPushButton {
     border: none;
     border-radius: 5px;
 }
-
 QPushButton:hover {
     background-color: #5e82ab;
-}
-
-QComboBox {
-    font-family: "Roboto";
-    font-size: 12pt;
-    background-color: #32476e;
-    color: #fefffa;
-    border-right: 1px solid #0f1621;
-    border-radius: 5px;
-}
-QComboBox::drop-down {
-    background-color: #32476e;
-    border: none;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-QComboBox::drop-down:hover {
-    background-color: #5e82ab;
-}
-QComboBox::down-arrow {
-    image: url(resources/images/icons/arrow_down.svg);
-    width: 16px;
-    height: 16px;
-}
-QComboBox QAbstractItemView {
-    font-family: "Roboto";
-    font-size: 12pt;
-    background-color: #32476e;
-    color: #fefffa;
-    border: 1px solid #0f1621;
-}
-
-
-QGroupBox {
-    font-family: "Tektur Medium";
-    font-size: 8pt;
-    color: #fefffa;
-    border: 1px solid #adadaa;
-    border-radius: 10px;
 }
 
 QProgressBar {

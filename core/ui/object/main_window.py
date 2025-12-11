@@ -1,10 +1,11 @@
+from PySide6.QtGui import QAction
+from PySide6.QtCore import QThread
 from typing import Optional
 from core.meta import get_full_version
 from core.service import ExtensionService
-from PySide6.QtCore import QThread, QTimer
-from PySide6.QtWidgets import QWidget, QMenuBar
 from qframelesswindow import FramelessMainWindow
 from core.style.style_manager import load_stylesheet_from_file
+from PySide6.QtWidgets import QWidget, QMenuBar, QMenu, QSystemTrayIcon
 import webbrowser
 
 from core.ui.layout.main_window import Ui_main_window
@@ -14,6 +15,7 @@ from core.ui.object.main_page import MainPage
 from core.ui.object.generator_popup import GeneratorPopup
 from core.ui.object.generator_short_popup import GeneratorShortPopup
 from core.ui.object.csv_import_popup import CsvImportPopup
+from core.ui.object.csv_export_popup import CsvExportPopup
 
 
 class MainWindow(FramelessMainWindow):
@@ -35,11 +37,16 @@ class MainWindow(FramelessMainWindow):
         self._generator_short_popup = GeneratorShortPopup(self)
         self._generator_short_popup.close()
 
-        self._cvs_import_popup = CsvImportPopup(self)
-        self._cvs_import_popup.close()
+        self._csv_import_popup = CsvImportPopup(self)
+        self._csv_import_popup.close()
+
+        self._csv_export_popup = CsvExportPopup(self)
+        self._csv_export_popup.close()
 
         self._extension_service = ExtensionService()
         self.start_extension_service()
+
+        self._tray = QSystemTrayIcon(self)
 
         self.setup_ui()
         self.style_ui()
@@ -55,6 +62,7 @@ class MainWindow(FramelessMainWindow):
     def get_extension_status(self) -> None:
         status = self._extension_service.is_extension_online()
         self._title_bar.ui.status_widget.set_status(status)
+        self._ui.action_extension_status.setText("Online" if status else "Offline")
 
         QTimer.singleShot(5000, self.get_extension_status)
 
@@ -71,9 +79,18 @@ class MainWindow(FramelessMainWindow):
     def stop_extension_service(self) -> None:
         self._extension_service.thread().terminate()
 
-    def restart_extension_service(self) -> None:
-        self.stop_extension_service()
-        self.start_extension_service()
+    def setup_tray(self) -> None:
+        self._tray.setIcon()
+        self._tray.setVisible(True)
+
+        self._tray_menu = QMenu()
+        self._open_app_action = QAction("Открыть")
+        self._open_app_action.triggered.connect()
+        self._tray_menu.addAction(self._open_app_action)
+
+        self._close_app_action = QAction("Закрыть")
+        self._close_add_action.triggered.connect()
+        self._tray_menu.addAction(self._close_app_action)
 
     def setup_ui(self) -> None:
         self.menuBar().hide()
@@ -91,13 +108,14 @@ class MainWindow(FramelessMainWindow):
         self._ui.exit_action.triggered.connect(self.window().close)
         self._ui.create_password.triggered.connect(self._generator_popup.open)
         self._ui.create_quick_password.triggered.connect(self._generator_short_popup.open)
-        self._ui.import_csv_action.triggered.connect(self._cvs_import_popup.open)
-        self._ui.restart_service_action.triggered.connect(self.restart_extension_service)
+        self._ui.import_csv_action.triggered.connect(self._csv_import_popup.open)
+        self._ui.export_csv_action.triggered.connect(self._csv_export_popup.open)
         self._ui.github_page_action.triggered.connect(lambda: webbrowser.open("https://github.com/akato-the-dragon/Obscura"))
-        
-        self.get_service_status()
+        self._ui.download_extension_action.triggered.connect(lambda: webbrowser.open("https://bormart.ru:8000/q?f=pun7bgW6VAYWNzIP"))
+
         self._ui.action_version.setText(get_full_version())
 
+        self.get_service_status()
         self.get_extension_status()
     
     def style_ui(self) -> None:
