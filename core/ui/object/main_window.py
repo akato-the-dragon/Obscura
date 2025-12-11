@@ -130,7 +130,7 @@ class MainWindow(FramelessMainWindow):
         self._ui.import_csv_action.triggered.connect(self._csv_import_popup.open)
         self._ui.export_csv_action.triggered.connect(self._csv_export_popup.open)
         self._ui.github_page_action.triggered.connect(lambda: webbrowser.open("https://github.com/akato-the-dragon/Obscura"))
-        self._ui.download_extension_action.triggered.connect(lambda: webbrowser.open("https://bormart.ru:8000/q?f=pun7bgW6VAYWNzIP"))
+        self._ui.download_extension_action.triggered.connect(lambda: webbrowser.open("https://bormart.ru:8000/q?f=QUjbwrmOosCZZfgk"))
 
         label_insert_text(self._ui.action_version, get_full_version())
 
