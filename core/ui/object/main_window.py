@@ -150,6 +150,13 @@ class MainWindow(FramelessMainWindow):
     def ui(self) -> Ui_main_window:
         return self._ui
     
+    def resizeEvent(self, event: QEvent):
+        self._generator_popup.center()
+        self._generator_short_popup.center()
+        self._csv_import_popup.cancel()
+        self._csv_export_popup.cancel()
+        super().resizeEvent(event)
+
     def closeEvent(self, event: QEvent) -> None:
         event.ignore()
         self.hide()

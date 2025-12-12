@@ -136,3 +136,8 @@ class MainPage(QWidget):
     @property
     def ui(self) -> Ui_main_page_widget:
         return self._ui
+    
+    def resizeEvent(self, event):
+        self._add_password_popup.center()
+        self._password_popup.center()
+        super().resizeEvent(event)

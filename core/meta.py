@@ -6,7 +6,7 @@ NAME: Final[str] = "Obscura"
 VERSION: Final[str] = "1.0.0"
 AUTHOR: Final[str] = "akato-the-dragon"
 LICENSE: Final[str] = "MIT"
-DEVELOPMENT_BUILD: Final[bool] = False
+DEVELOPMENT_BUILD: Final[bool] = True
 
 
 def get_meta() -> dict:

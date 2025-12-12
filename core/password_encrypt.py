@@ -8,7 +8,7 @@ from cryptography.hazmat.backends import default_backend
 SALT_SIZE = 16
 NONCE_SIZE = 12
 KEY_LENGTH = 32
-PBKDF2_ITERATIONS = 1000000
+PBKDF2_ITERATIONS = 100000
 
 
 def __derive_key(master_password: str, salt: bytes) -> bytes:
