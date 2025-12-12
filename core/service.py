@@ -50,8 +50,7 @@ class ExtensionService(QObject):
             password_list = password_database.get_password_list()
 
             for password_item in password_list:
-                if (password_item[1] == site_url or password_item[1].endswith(site_url) or site_url.endswith(password_item[1])):
-                    # ОШИБКА: здесь должно быть password_item[0], а не password[0]
+                if (password_item[1] == site_url or password_item[1].find(site_url) > 0 or site_url.find(password_item[1]) > 0):
                     id, url, login, password = password_database.get_password_item(password_item[0])
 
                     return {

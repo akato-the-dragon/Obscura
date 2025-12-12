@@ -26,7 +26,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 async function autoFillCredentials() {
     if (!settings.autoFillPasswords) return;
     
-    const site_url = window.location.origin;
+    const site_url = window.location.hostname;
     
     try {
         const response = await chrome.runtime.sendMessage({
