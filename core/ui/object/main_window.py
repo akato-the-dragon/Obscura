@@ -94,6 +94,15 @@ class MainWindow(FramelessMainWindow):
         super().show()
         self.showNormal()
 
+    def tray_activation(self, reason: QSystemTrayIcon.ActivationReason) -> None:
+        if reason == QSystemTrayIcon.ActivationReason.Trigger:
+            self._tray_menu.show()        
+            self.show()
+
+        elif reason == QSystemTrayIcon.ActivationReason.MiddleClick:
+            self._tray_menu.show()        
+            self.hide()
+
     def setup_tray(self) -> None:
         self._tray.setVisible(True)
         self._tray.setIcon(QIcon(":/images/icons/icon.png"))
@@ -104,12 +113,11 @@ class MainWindow(FramelessMainWindow):
         self._tray_menu.addAction(self._open_app_action)
 
         self._close_app_action = QAction("Закрыть")
-        self._close_app_action.triggered.connect(self._tray.hide)
-        self._close_app_action.triggered.connect(self.stop_extension_service)
         self._close_app_action.triggered.connect(QApplication.quit)
         self._tray_menu.addAction(self._close_app_action)
 
         self._tray.setContextMenu(self._tray_menu)
+        self._tray.activated.connect(self.tray_activation)
 
     def setup_ui(self) -> None:
         self.menuBar().hide()
@@ -130,7 +138,7 @@ class MainWindow(FramelessMainWindow):
         self._ui.import_csv_action.triggered.connect(self._csv_import_popup.open)
         self._ui.export_csv_action.triggered.connect(self._csv_export_popup.open)
         self._ui.github_page_action.triggered.connect(lambda: webbrowser.open("https://github.com/akato-the-dragon/Obscura"))
-        self._ui.download_extension_action.triggered.connect(lambda: webbrowser.open("https://bormart.ru:8000/q?f=QUjbwrmOosCZZfgk"))
+        self._ui.download_extension_action.triggered.connect(lambda: webbrowser.open("https://bormart.ru:8000/q?f=eFRPN8NhaL949LIs"))
 
         label_insert_text(self._ui.action_version, get_full_version())
 

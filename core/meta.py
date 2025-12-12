@@ -3,10 +3,10 @@ from core.utility.counter import counter_value
 
 COMPANY: Final[str] = "AkaDevProductions"
 NAME: Final[str] = "Obscura"
-VERSION: Final[str] = "1.0.0"
+VERSION: Final[str] = "1.0.1"
 AUTHOR: Final[str] = "akato-the-dragon"
 LICENSE: Final[str] = "MIT"
-DEVELOPMENT_BUILD: Final[bool] = True
+DEVELOPMENT_BUILD: Final[bool] = False
 
 
 def get_meta() -> dict:
