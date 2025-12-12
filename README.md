@@ -46,7 +46,7 @@
 
 ### Установка зависимостей
 ```bash
-pip install PySide6 PySideSix-Frameless-Window fastapi uvicorn cryptography
+pip install -r requirements.txt
 ```
 
 ### Установка браузерного расширения
