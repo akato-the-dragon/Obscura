@@ -110,6 +110,7 @@ class MainPage(QWidget):
         self._ui.add_button.clicked.connect(self.add_password_data)
         self._ui.delete_button.clicked.connect(self.delete_password_data)
         self._ui.search_button.clicked.connect(self.search_password_data)
+        self._ui.search_line_edit.textChanged.connect(self.search_password_data)
         password_database.database_changed.connect(self.load_password_data)
 
         self.load_password_data()
