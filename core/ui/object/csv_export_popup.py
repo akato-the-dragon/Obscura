@@ -16,25 +16,28 @@ class CsvExportWorker(QObject):
     finished = Signal(int)
     error = Signal(str)
     
-    def __init__(self, data: List[Tuple[str, str, str]], file_path: str,
-                 headers: List = ["site_url", "login", "password"], parent: Optional[QObject] = None) -> None:
+    def __init__(self, file_path: str, headers: List = ["site_url", "login", "password"],
+                 parent: Optional[QObject] = None) -> None:
         super().__init__(parent)
-        self.data = data
         self.file_path = file_path
         self._headers = headers
         self._is_running = True
         
     def run(self):
         try:
-            total_lines = len(self.data)
+            total_lines = len(password_database.get_password_list())
             processed = 0
             
             with open(self.file_path, "w", newline="") as csv_file:
                 writer = csv.writer(csv_file)
                 writer.writerow(self._headers)
                 
-                for item in self.data:
-                    writer.writerow(item)
+                for password_item in password_database.get_password_list():
+                    item_id = password_item[0]
+                    
+                    id, site_url, login, password = password_database.get_password_item(item_id)
+
+                    writer.writerow((site_url, login, password))
                     processed += 1
 
                     progress_percent = int((processed / total_lines) * 100) if total_lines > 0 else 0
@@ -79,28 +82,17 @@ class CsvExportPopup(CorePopup):
         
         super().close()
 
-    def get_csv_data(self) -> List[Tuple[str, str, str]]:
-        csv_data = []
-        for password_item in password_database.get_password_list():
-            item_id = password_item[0]
-            
-            id, site_url, login, password = password_database.get_password_item(item_id)
-            csv_data.append((site_url, login, password))
-        
-        return csv_data
-
     def export_csv_data(self) -> None:
         if not self._current_file_path:
             QMessageBox.warning(self, "Ошибка", "Не выбран файл для импорта.")
             return
 
         headers = ["site_url", "login", "password"]
-        csv_data = self.get_csv_data()
         
         self.set_ui_enabled(False)
 
         self._export_thread = QThread()
-        self._export_worker = CsvExportWorker(csv_data, self._current_file_path, headers)
+        self._export_worker = CsvExportWorker(self._current_file_path, headers)
 
         self._export_worker.moveToThread(self._export_thread)
 
