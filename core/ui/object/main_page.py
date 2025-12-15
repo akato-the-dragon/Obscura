@@ -28,8 +28,11 @@ class MainPage(QWidget):
         self.style_ui()
 
     def load_password_data(self) -> None:
+        for row in range(1, self._ui.table_widget.rowCount()):
+            self._ui.table_widget.removeRow(row)
+
         password_list = password_database.get_password_list()
-        password_filler = "?" * 32
+        password_filler = "?" * 48
         data = [(id, site_url, login, password_filler) for id, site_url, login in password_list]
         rows = len(data)
         columns = self._ui.table_widget.columnCount()
@@ -41,8 +44,7 @@ class MainPage(QWidget):
                 item = QTableWidgetItem(str(data[row][column]))
                 item.setFlags(item.flags() & ~Qt.ItemFlag.ItemIsEditable)
                 self._ui.table_widget.setItem(row, column, item)
-            
-        # Resize columns
+
         self._ui.table_widget.resizeColumnsToContents()
 
         header = self._ui.table_widget.horizontalHeader()

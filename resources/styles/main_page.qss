@@ -78,7 +78,7 @@ QHeaderView::up-arrow {
 
 
 QScrollBar {
-	width: 4px;
+	width: 8px;
 }
 QScrollBar:vertical, QScrollBar:horizontal {
 	background-color: #263445;

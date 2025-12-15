@@ -4,9 +4,7 @@ from core.data_base import password_database
 from core.utility.counter import increment_counter
 from PySide6.QtNetwork import QLocalServer, QLocalSocket
 from core.style.font_loader import load_fonts_from_directory
-import os
 import sys
-import psutil
 
 from core.ui.object.main_window import MainWindow
 
