@@ -1,6 +1,6 @@
-from core.meta import NAME, DEVELOPMENT_BUILD
 from PySide6.QtWidgets import QApplication
 from core.data_base import password_database
+from core.meta import NAME, DEVELOPMENT_BUILD
 from core.utility.counter import increment_counter
 from PySide6.QtNetwork import QLocalServer, QLocalSocket
 from core.style.font_loader import load_fonts_from_directory

@@ -1,7 +1,7 @@
 from typing import Optional
-from PySide6.QtGui import QIcon, Qt
+from PySide6.QtGui import QIcon, QPixmap
 from core.data_base import password_database
-from PySide6.QtCore import QSize, QModelIndex
+from PySide6.QtCore import Qt, QSize, QModelIndex
 from core.style.style_manager import load_stylesheet_from_file
 from PySide6.QtWidgets import QWidget, QAbstractItemView, QTableWidgetItem, QHeaderView, QMessageBox
 
@@ -28,6 +28,9 @@ class MainPage(QWidget):
         self.style_ui()
 
     def load_password_data(self) -> None:
+        
+        self._ui.table_widget.setSortingEnabled(False)
+
         for row in range(1, self._ui.table_widget.rowCount()):
             self._ui.table_widget.removeRow(row)
 
@@ -44,6 +47,8 @@ class MainPage(QWidget):
                 item = QTableWidgetItem(str(data[row][column]))
                 item.setFlags(item.flags() & ~Qt.ItemFlag.ItemIsEditable)
                 self._ui.table_widget.setItem(row, column, item)
+
+        self._ui.table_widget.setSortingEnabled(True)
 
         self._ui.table_widget.resizeColumnsToContents()
 
@@ -105,13 +110,12 @@ class MainPage(QWidget):
 
     def setup_ui(self) -> None:
         self._ui.table_widget.setColumnHidden(0, True)
-        self._ui.table_widget.setSortingEnabled(True)
+        self._ui.table_widget.horizontalHeader().setMinimumSectionSize(150)
         self._ui.table_widget.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
 
         self._ui.table_widget.doubleClicked.connect(self.open_password_data)
         self._ui.add_button.clicked.connect(self.add_password_data)
         self._ui.delete_button.clicked.connect(self.delete_password_data)
-        self._ui.search_button.clicked.connect(self.search_password_data)
         self._ui.search_line_edit.textChanged.connect(self.search_password_data)
         password_database.database_changed.connect(self.load_password_data)
 
@@ -122,8 +126,7 @@ class MainPage(QWidget):
 
         search_icon_size = QSize(24, 24)
         search_icon = QIcon(":/images/icons/search.svg")
-        self._ui.search_button.setIconSize(search_icon_size)
-        self._ui.search_button.setIcon(search_icon)
+        self._ui.search_label.setPixmap(search_icon.pixmap(search_icon_size))
 
         delete_icon_size = QSize(32, 32)
         delete_icon = QIcon(":/images/icons/minimize.svg")
