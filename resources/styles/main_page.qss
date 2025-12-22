@@ -13,21 +13,19 @@
     font-size: 12pt;
     background-color: #32476e;
     color: #fefffa;
-    border-right: 1px solid #0f1621;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-left: 1px solid #0f1621;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 #search_line_edit:focus {
     border-bottom: 1px solid #fefffa;
 }
 
-#search_button {
+#search_label {
     background-color: #32476e;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-#search_button:hover {
-    background-color: #5e82ab;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 2px;
 }
 
 #delete_button, #add_button {
