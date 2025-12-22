@@ -102,9 +102,22 @@ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
     background: none;
 }
 
+QMessageBox {
+    background-color: #1b263b;
+}
+
 QMessageBox QPushButton {
-    background-color: palette(Button);
+    font-family: "Roboto";
+    font-size: 14pt;
     color: #fefffa;
-    border: 1px solid palette(Mid);
+}
+
+QMessageBox QPushButton {
+    background-color: #32476e;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
     padding: 5px;
+}
+QMessageBox QPushButton:hover {
+    background-color: #5e82ab;
 }
